@@ -84,7 +84,7 @@ swal({
                             <thead class="table-success">
                                 <tr>
                                     <th>التسلسل</th>
-                                    {{-- <th>الاسم</th> --}}
+                                    <th>الاسم</th>
                                     <th>الربط</th>
                                     <th>الكلمات الدليلية</th>
                                     <th>الكلمات الوصفية</th>
