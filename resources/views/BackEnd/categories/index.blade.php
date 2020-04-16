@@ -29,7 +29,7 @@ swal({
 @section('content')
 <div class="container py-3">
     <div class="row">
-        <div class="col-lg-2">
+        <div class="col-lg-5">
             <a href="{{ route('categories.create') }}">
                 <div class="btn btn-info" style="
                     color: white;
@@ -37,7 +37,7 @@ swal({
                 </div>
             </a>
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-7">
             <div class="btn-group ">
                 <form action="{{route('category.search')}}" method="post">
                     {{ csrf_field() }}

@@ -17,14 +17,21 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.dashbord')}}">
-                <i class="material-icons">dashboard</i>
-                <p class="d-lg-none d-md-block">
-                Stats
-                </p>
-            </a>
+            <!-- Start Language -->
+            <li class="nav-item dropdown">
+                <a class="nav-link nav-link-icon" href="#" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-flag"></i>
+                </a>
+                <div class="dropdown-menu @if(app()->getLocale() == 'ar') dropdown-menu-left @endif " aria-labelledby="navbar-default_dropdown_1">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            <i class="ni ni-collection"></i>
+                            <span class="nav-link-inner--text">{{ $properties['native'] }}</span>
+                        </a>
+                    @endforeach
+                </div>
             </li>
+            <!-- End Language -->
             <li class="nav-item dropdown">
             <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="material-icons">person</i>
@@ -47,6 +54,19 @@
             </form>
                 {{-- <a class="dropdown-item" href="#">Log out</a> --}}
             </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.dashbord')}}">
+                    <i class="material-icons">dashboard</i>
+                    <p class="d-lg-none d-md-block">
+                    Stats
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.dashbord')}}">
+                    balsam
+                </a>
             </li>
         </ul>
         </div>

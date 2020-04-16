@@ -29,7 +29,7 @@ swal({
 @section('content')
 
 <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-5">
         <a href="{{ route('users.create') }}">
             <div class="btn btn-info" style="
                 color: white;
@@ -37,7 +37,7 @@ swal({
             </div>
         </a>
     </div>
-    <div class="col-lg-10">
+    <div class="col-lg-7">
         <div class="btn-group ">
             <form action="{{route('user.search')}}" method="post">
                 {{ csrf_field() }}
@@ -49,7 +49,7 @@ swal({
                 </div>
             </form>
         </div>
-        <div class="btn-group pull-left">
+        <div class="btn-group">
             <button class="btn btn-default bg-orang">ظهور على حسب</button>
             <button data-toggle="dropdown" class="btn dropdown-toggle" style="background:linear-gradient(60deg, #373a6c, #373a6c)"><span class="caret"></span></button>
             <ul class="dropdown-menu dropdown-warning">
