@@ -67,7 +67,7 @@ Route::group(
         //FrontEnd
         Route::middleware('Maintenance')->group(function(){
 
-            Route::middleware('auth')->group(function () {
+            Route::middleware('auth' , 'verified')->group(function () {
                 Route::post('comments/{id}' , 'HomeController@Delete_Comment' )->name('front.deleteComment');
                 Route::post('addComment' , 'HomeController@Add_Comment')->name('front.addComment');
                 Route::post('replayComment' , 'HomeController@Replay_Comment')->name('front.replayComment');

@@ -26,15 +26,6 @@
                         <label for="email">meta_description</label>
                         <input type="text" name="meta_description" class="form-control" placeholder="@lang('lang.Type Email')" value="{{old('email')}}">
                     </div>
-
-                    <div class="form-group">
-                        <select class="form-control" name="parent_id">
-                        <option value="">Select Parent Category</option>
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <br>
                     <div class="form-group text-right">
                         <button type="submit" class="btn btn-primary">@lang('lang.Create')</button>

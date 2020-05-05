@@ -25,9 +25,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-     public function __construct() {
-        $this->middleware('verified');
-    }
+    //  public function __construct() {
+    //     $this->middleware('verified');
+    // }
 
     /**
      * Show the application dashboard.
@@ -116,78 +116,22 @@ class HomeController extends Controller
         }
 
         //upload Image
-        if(!empty($user->image)) {
+        if($request->hasFile('image')) {
             if($user->image)
             {
                 @unlink('uploads/Users/'.$user->image);
             }
-            if($request->hasFile('image')) {
-                $file = $request->file('image');
-                $fileName = time()  . '.' .$file->getClientOriginalExtension();
-                $file->move(public_path('uploads/Users') , $fileName);
-                $data['image'] = $fileName;
-                $user->image = $data['image'];
-            }
-        } else {
-            $data['image'] = $request->image;
+            $file = $request->file('image');
+            $fileName = time()  . '.' .$file->getClientOriginalExtension();
+            $file->move(public_path('uploads/Users') , $fileName);
+            $data['image'] = $fileName;
+            $user->image = $data['image'];
         }
         $user->admin = $data['admin'];
         $user->email_verified_at = isset($data['email_verified_at']) ? $data['email_verified_at'] : NULL;
         $user->save();
         Alert::success(trans('lang.Title'), trans('lang.record_update'));
         return back();
-
-
-        // $user = User::findOrfail($id);
-        // $data = $this->validate($request,
-        // [
-        //     //User
-        //     'name'                      => ['required', 'string', 'max:255' , 'unique:users,name,'.$user->id],
-        //     'email'                     => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
-        //     'password'                  => ['sometimes' , 'confirmed'],
-        //     'password_confirmation'     => ['sometimes', 'same:password'],
-        //     'image'                     => ['nullable' , 'image' , 'mimes:jpg,png,jpeg'],
-        //     'admin'                     => ['required'],
-        //     'email_verified_at'         => ['sometimes'],
-        // ], [], [
-        //     //User
-        //     'name.required'                     => 'A Name is required',
-        //     'email.required'                    => 'A Email is required',
-        //     'admin.required'                    => 'A Email is required',
-        // ]);
-
-        // $user->name = $data['name'];
-        // $user->email = $data['email'];
-        // if(isset($data['password']) && $data['password'] != '' && $data['password'] == $data['password_confirmation']) {
-        //     $user->password = bcrypt(request()->get('password'));
-        // } else {
-        //     unset($user->password);
-        // }
-
-        // //upload Image
-        // if(!empty($user->image)) {
-        //     if($user->image)
-        //     {
-        //         @unlink('uploads/Users/'.$user->image);
-        //     }
-        //     if($request->hasFile('image')) {
-        //         $file = $request->file('image');
-        //         $fileName = time()  . '.' .$file->getClientOriginalExtension();
-        //         $file->move(public_path('uploads/Users') , $fileName);
-        //         $data['image'] = $fileName;
-        //         $user->image = $data['image'];
-        //     }
-        // } else {
-        //     $data['image'] = $request->image;
-        // }
-        // $user->image = $data['image'];
-        // $user->admin = $data['admin'];
-        // $user->email_verified_at = isset($data['email_verified_at']) ? $data['email_verified_at'] : NULL;
-
-        // $user->save();
-        // Alert::success(trans('lang.Title'), trans('lang.record_update'));
-        // return back();
-
     }
 
     public function SiteSearch(Request $request) {

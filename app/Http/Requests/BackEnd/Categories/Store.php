@@ -27,7 +27,6 @@ class Store extends FormRequest
             'name'              => ['required', 'string', 'min:3' , 'max:100'],
             'meta_keywords'     => ['max:255'],
             'meta_description'  => ['max:255'],
-            'parent_id'         => ['sometimes'],
         ];
     }
 

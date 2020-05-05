@@ -22,6 +22,31 @@
                         <input type="text" name="email" class="form-control"  value="{{ $setting->email }}">
                     </div>
 
+                    <div class="form-group bmd-form-group text-right">
+                        <label class="bmd-label-floating">@lang('lang.Address')</label>
+                        <input type="text" name="address" class="form-control"  value="{{ $setting->address }}">
+                    </div>
+
+                    <div class="form-group bmd-form-group text-right">
+                        <label class="bmd-label-floating">@lang('lang.Phone')</label>
+                        <input type="text" name="phone" class="form-control"  value="{{ $setting->phone }}">
+                    </div>
+
+                    <div class="form-group bmd-form-group text-right">
+                        <label class="bmd-label-floating">@lang('lang.Facebook')</label>
+                        <input type="text" name="facebook" class="form-control"  value="{{ $setting->facebook }}">
+                    </div>
+
+                    <div class="form-group bmd-form-group text-right">
+                        <label class="bmd-label-floating">@lang('lang.Instagram')</label>
+                        <input type="text" name="instagram" class="form-control"  value="{{ $setting->instagram }}">
+                    </div>
+
+                    <div class="form-group bmd-form-group text-right">
+                        <label class="bmd-label-floating">@lang('lang.Twitter')</label>
+                        <input type="text" name="twitter" class="form-control"  value="{{ $setting->twitter }}">
+                    </div>
+
                     <div>
                         <label class="bmd-label-floating">@lang('lang.Logo')</label>
                         <input type="file" name="logo" class="form-control"  value="{{ $setting->logo }}">

@@ -30,15 +30,6 @@ Categories | Edit
                         <label for="email">meta_description</label>
                         <input type="text" name="meta_description" class="form-control" placeholder="@lang('lang.Type Email')" value="{{$category->meta_description}}">
                     </div>
-
-                    <div class="form-group">
-                        <select class="form-control" name="parent_id">
-                        <option value="">Select Parent Category</option>
-                            @foreach ($categories as $child)
-                                <option value="{{ $child->id }}" {{isset($category->parent_id) && $category->parent_id == $child->id ? 'selected' : ''}}>{{ $child->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <br>
                     <div class="form-group text-right">
                         <button type="submit" class="btn btn-primary">@lang('lang.Save')</button>

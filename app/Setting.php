@@ -15,7 +15,13 @@ class Setting extends Model
 		'description',
 		'keywords',
 		'status',
-		'message_maintenance',
+        'message_maintenance',
+        'address',
+        'phone' ,
+        'facebook' ,
+        'instagram' ,
+        'twitter',
 		'main_lang',
-	];
+    ];
+
 }

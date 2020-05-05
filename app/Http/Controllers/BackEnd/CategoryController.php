@@ -107,8 +107,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        $categories = Category::with('children')->get();
-        return view('BackEnd.categories.edit' , compact('category' , 'categories'))->with('title' , trans('lang.Edit Category'));;
+        return view('BackEnd.categories.edit' , compact('category'))->with('title' , trans('lang.Edit Category'));;
     }
 
     /**
@@ -139,26 +138,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-
-        if ($category->children) {
-          foreach ($category->children as $child) {
-            if ($child->posts) {
-              foreach ($child->posts as $post) {
-                $post->category_id = NULL;
-                $post->save();
-              }
-            }
-          }
-
-          $category->children()->delete();
-        }
-
-        if ($category->posts) {
-          foreach ($category->posts as $post) {
-            $post->category_id = NULL;
-            $post->save();
-          }
-        }
 
         $category->delete();
 

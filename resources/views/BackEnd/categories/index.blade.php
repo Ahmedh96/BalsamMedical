@@ -88,8 +88,6 @@ swal({
                                     <th>الربط</th>
                                     <th>الكلمات الدليلية</th>
                                     <th>الكلمات الوصفية</th>
-                                    <th>نوع القسم</th>
-                                    <th>القسم الفرعي له</th>
                                     <th>@lang('lang.Actions')</th>
                                 </tr>
                             </thead>
@@ -101,18 +99,6 @@ swal({
                                         <td> <span class="label label-info">{{$category->slug}}</span></td>
                                         <td>{{$category->meta_keywords}}</td>
                                         <td>{{$category->meta_description}}</td>
-                                        <td>
-                                            @if ($category->parent_id == null)
-                                                <span class="label label-success">رئيسي</span>
-                                            @else
-                                                <span class="label label-inverse">فرعي</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @foreach ($category->children as $child)
-                                            {{ $child->name }}
-                                            @endforeach
-                                        </td>
                                         <td>
                                             <a href="{{route('categories.edit' , $category->id)}}" class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
                                             {{-- <div class=""></div> --}}

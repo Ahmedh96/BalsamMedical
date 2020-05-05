@@ -1,33 +1,18 @@
-<div class="section section-hero section-shaped">
-        <div class="shape shape-style-1 shape-primary">
-          <span class="span-150"></span>
-          <span class="span-50"></span>
-          <span class="span-50"></span>
-          <span class="span-75"></span>
-          <span class="span-100"></span>
-          <span class="span-75"></span>
-          <span class="span-50"></span>
-          <span class="span-100"></span>
-          <span class="span-50"></span>
-          <span class="span-100"></span>
-        </div>
-        <div class="page-header">
-          <div class="container shape-container d-flex align-items-center py-lg">
-            <div class="col px-0">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6 text-center">
-                  {{-- <img src="{{url('design/FrontEnd')}}/assets/img/brand/white.png" style="width: 200px;" class="img-fluid"> --}}
-                  @if (setting())
-                    <p class="lead text-white">{{Setting()->description}}</p>
-                  @endif
+<section class="home-slider owl-carousel">
+    @if ($LatestPosts)
+        @foreach ($LatestPosts as $LatestPost)
+            <div class="slider-item" style="background-image:url({{url('uploads/Posts/' . $LatestPost->image)}});" data-stellar-background-ratio="0.5">
+                <div class="overlay"></div>
+                <div class="container">
+                <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+                <div class="col-md-6 text ftco-animate">
+                    <h1 class="mb-4">{{$LatestPost->title}}</h1>
+                    <h3 class="subheading">{!! Str::limit($LatestPost->description , 30 )  !!}</h3>
+                    <p><a href="{{route('front.post' , $LatestPost->slug)}}" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
                 </div>
-              </div>
+                </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="separator separator-bottom separator-skew zindex-100">
-          <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-          </svg>
-        </div>
-      </div>
+        @endforeach
+    @endif
+</section>

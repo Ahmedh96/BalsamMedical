@@ -58,7 +58,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::where('parent_id' , null)->get();
+        $categories = Category::get();
         return view('BackEnd.posts.create' , compact('categories'))->with('title' , trans('lang.Create Post'));;
     }
 

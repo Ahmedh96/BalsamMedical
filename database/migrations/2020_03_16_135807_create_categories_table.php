@@ -19,7 +19,6 @@ class CreateCategoriesTable extends Migration
             $table->string('meta_keywords')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('slug');
-            $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

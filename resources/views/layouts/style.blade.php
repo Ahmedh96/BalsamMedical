@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html lang="{{ LaravelLocalization::getCurrentLocale() }}">
-
     <!--================Header =================-->
     @include('layouts.header')
     <!--================End Header =================-->
+  <body>
+    <!--================Nabvar =================-->
+    @include('layouts.navbar')
+    <!--================End Navbar =================-->
 
-<body class="index-page">
-  <!--================ Navbar =================-->
-  @include('layouts.navbar')
-  <!--================ End Navbar =================-->
-  <div class="wrapper">
-    <!--================ Slider =================-->
+    <!--================Slider =================-->
     @include('layouts.slider')
-    <!--================ End Slider =================-->
+    <!--================End Slider =================-->
+
 
     @yield('content')
-  </div>
-  <div><!-- Typography -->
-    <footer class="footer bg-white">
-        <div class="container">
-        <div class="row row-grid align-items-center my-md">
-            <div class="col-lg-12">
-                <h3 class="text-primary font-weight-light mb-2">المكان الخاص في الاعلان</h3>
-            </div>
-        </div>
-        <hr>
-        <div class="row align-items-center justify-content-md-between">
-            <div class="col-md-6">
-                <div class="copyright @if(app()->getLocale() == 'ar')
-                    pull-right
-                @endif">
-                    &copy; 2020 <a href="" target="_blank">Enjoy Code</a>.
-                </div>
-            </div>
-            <div class="col-md-6">
-                <ul class="nav nav-footer justify-content-end">
-                    @foreach ($pages as $page)
-                        <li class="nav-item">
-                            <a href="{{route('front.page' , $page->slug)}}" class="nav-link">{{$page->name}}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        </div>
-    </footer>
-  </div>
 
-    <!--================Header =================-->
+
+    <!--================Footer =================-->
     @include('layouts.footer')
-    <!--================End Header =================-->
-</body>
+    <!--================End Footer =================-->
 
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{{url('design/FrontEnd')}}/js/jquery.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/popper.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/bootstrap.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/jquery.easing.1.3.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/jquery.waypoints.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/jquery.stellar.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/owl.carousel.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/jquery.magnific-popup.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/aos.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/jquery.animateNumber.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/bootstrap-datepicker.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/jquery.timepicker.min.js"></script>
+  <script src="{{url('design/FrontEnd')}}/js/scrollax.min.js"></script>
+  {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> --}}
+  {{-- <script src="{{url('design/FrontEnd')}}/js/google-map.js"></script> --}}
+  <script src="{{url('design/FrontEnd')}}/js/main.js"></script>
+
+  </body>
 </html>

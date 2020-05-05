@@ -32,6 +32,11 @@ class Store extends FormRequest
             'icon'                  => ['required' , 'image' , 'mimes:jpg,png,jpeg' ],
             'main_lang'             => ['required'],
             'status'                => ['required'],
+            'address'               => ['sometimes'],
+            'phone'                 => ['sometimes'],
+            'facebook'              => ['sometimes'],
+            'instagram'             => ['sometimes'],
+            'twitter'               => ['sometimes'],
             'message_maintenance'   => [''],
         ];
     }
