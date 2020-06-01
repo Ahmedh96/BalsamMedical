@@ -3,6 +3,7 @@
 namespace App\Http\Requests\BackEnd\Pages;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Config;
 
 class Store extends FormRequest
 {
@@ -23,11 +24,27 @@ class Store extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'              => ['required' , 'max:191'],
-            'description'       => ['required' , 'min:10'],
+        $rules = [
             'meta_keywords'     => ['max:191'],
             'meta_description'  => ['max:191'],
+        ];
+        foreach (Config::get('translatable.locales') as $locale) {
+            $rules += [$locale . '.name' => 'required|string|unique:page_translations,name'];
+            $rules += [$locale . '.description' => 'required'];
+        }
+
+        return $rules;
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Name is required',
         ];
     }
 }

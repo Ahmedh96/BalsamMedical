@@ -15,7 +15,6 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('sitename');
             $table->string('logo')->nullable();
             $table->string('icon')->nullable();
             $table->string('email')->nullable();
@@ -25,7 +24,6 @@ class CreateSettingsTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
             $table->string('main_lang')->default('ar');
-            $table->longtext('description')->nullable();
             $table->longtext('keywords')->nullable();
             $table->enum('status', ['open', 'close'])->default('open');
             $table->longtext('message_maintenance')->nullable();

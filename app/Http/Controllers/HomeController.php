@@ -37,27 +37,35 @@ class HomeController extends Controller
     public function index()
     {
         $postlatest = Post::orderBy('id', 'desc')->take(3)->get();
-        return view('home' , compact('postlatest'));
+        $pageFirsted = Page::orderBy('created_at', 'asc')->take(2)->get();
+        return view('home' , compact('postlatest' , 'pageFirsted'));
     }
 
-    public function CategoryPost($slug) {
-        $category = Category::where('slug' , $slug)->firstOrfail();
-        // $posts = Post::where('category_id' , $category->id)->with('user' , 'category')->orderBy('id' , 'desc')->paginate(20);
+    public function CategoryPost($id) {
+        $category = Category::findOrfail($id);
         return view('FrontEnd.category.index' , compact('category'));
     }
 
-    public function Post($slug) {
-        $post = Post::where('slug' , $slug)->firstOrfail();
+    public function Post($id) {
+        $post = Post::findOrfail($id);
         return view('FrontEnd.post.index' , compact('post'));
     }
 
-    public function Page($slug) {
-        $page = Page::where('slug' , $slug)->firstOrfail();
+    public function Page($id) {
+        $page = Page::findOrfail($id);
         return view('FrontEnd.page.index' , compact('page'));
     }
 
     public function ContactUS() {
         return view('FrontEnd.contact.index');
+    }
+
+    public function WhoWeAre() {
+        return view('FrontEnd.who.index');
+    }
+
+    public function AboutUS() {
+        return view('FrontEnd.about.index');
     }
 
     public function ContactSend(Store $request) {
@@ -136,8 +144,15 @@ class HomeController extends Controller
 
     public function SiteSearch(Request $request) {
         $search = strip_tags($request->search);
-        $post = Post::where('title' , 'like' , '%' .$search . '%')->orWhere('id' , 'like' , '%' . $search . '%')->firstOrfail();;
-        return view('FrontEnd.post.index' , compact('post'));
+        // if($search) {
+            $posts = Post::where(function($q) use ($search){
+                $q->whereTranslationLike('title', '%' . $search . '%');
+                $q->orWhere('id' , 'like' , '%' . $search . '%');
+            })->get();
+        // }
+        return view('FrontEnd.post.search' , compact('posts'));
+        // return back();
+
     }
 }
 

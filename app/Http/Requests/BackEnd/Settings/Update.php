@@ -3,6 +3,8 @@
 namespace App\Http\Requests\BackEnd\Settings;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Validation\Rule;
 
 class Update extends FormRequest
 {
@@ -23,11 +25,9 @@ class Update extends FormRequest
      */
     public function rules()
     {
-        return [
-            'sitename'              => ['required', 'string', 'min:3' , 'max:100'],
+        $rules = [
             'email'                 => ['required', 'string', 'min:3' , 'max:100'],
             'keywords'              => ['max:255'],
-            'description'           => ['max:255'],
             'logo'                  => ['sometimes' , 'image' , 'mimes:jpg,png,jpeg'],
             'icon'                  => ['sometimes' , 'image' , 'mimes:jpg,png,jpeg' ],
             'main_lang'             => ['required'],
@@ -39,6 +39,12 @@ class Update extends FormRequest
             'twitter'               => ['sometimes'],
             'message_maintenance'   => [''],
         ];
+        foreach (Config::get('translatable.locales') as $locale) {
+            $rules += [$locale . '.sitename' => ['required', 'string', Rule::unique('setting_translations', 'sitename')->whereNot('setting_id', $this->setting)]];
+            $rules += [$locale . '.description' => 'required'];
+        }
+
+        return $rules;
     }
 
 

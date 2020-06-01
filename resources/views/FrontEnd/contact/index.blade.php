@@ -1,105 +1,112 @@
 @extends('layouts.style')
 
+@section('title')
+    @lang('lang.Contact')
+@endsection
+
 @section('content')
     <!--================Map Area =================-->
-    <section class="section section-lg section-shaped">
-        <div class="shape shape-style-1 shape-default">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{url('design/FrontEnd/images/bg_1.jpg')}}); background-position: 50% 0%;" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+                <h1 class="mb-2 bread">@lang('lang.Contact')</h1>
+                <p class="breadcrumbs">
+                    <span class="mr-2">
+                        <a href="{{route('home')}}" title="@lang('lang.Home')">@lang('lang.Home')
+                            @if (app()->getLocale() == 'ar')
+                            <i class="ion-ios-arrow-back"></i>
+                            @endif
+                            @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
+                            <i class="ion-ios-arrow-forward"></i>
+                            @endif
+                        </a>
+                    </span>
+                    <span>@lang('lang.Contact')
+                        @if (app()->getLocale() == 'ar')
+                        <i class="ion-ios-arrow-back"></i>
+                        @endif
+                        @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
+                        <i class="ion-ios-arrow-forward"></i>
+                        @endif
+                    </span>
+                </p>
+            </div>
+            </div>
         </div>
-        <div class="container py-md">
-            <div class="row row-grid justify-content-between align-items-center">
-                <div class="col-lg-5 mb-lg-auto">
-                    <div>
-                    <div class="card bg-white shadow border-0">
-                        <div class="card-body px-lg-5 py-lg-5">
-                            <div class="text-center text-muted mb-4">
-                                <h1>@lang('lang.Contact')</h1>
-                            </div>
-                            <form role="form" action="{{route('front.contactSend')}}" method="POST">
-                                @csrf
-                                <div class="form-group mb-3">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="@lang('lang.Name')" name="name" value="{{old('name')}}">
-                                    </div>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div>
-                                        <input type="email" class="form-control" placeholder="@lang('lang.Email')" name="email" value="{{old('email')}}">
-                                    </div>
-                                </div>
-                                <div class="form-group focused">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-send"></i></span>
-                                        </div>
-                                        <select class="form-control" name="type_message" id="exampleFormControlSelect1">
-                                            <optgroup label="نوع الرسالة"></optgroup>
-                                            <option value="0">غير ذلك</option>
-                                            <option value="1">اقتراح</option>
-                                            <option value="2">تنبية</option>
-                                            <option value="3">استفسار</option>
-                                        </select>
-                                    </div>
-                                </div>
+    </section>
 
-                                <div class="form-group focused">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-hospital-o"></i></span>
-                                        </div>
-                                        <input type="text" name="subject" placeholder="@lang('lang.Subject')" class="form-control"  value="{{ old('subject') }}">
-                                    </div>
-                                </div>
-                                <div class="form-group focused">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"></span>
-                                        </div>
-                                        <textarea name="bodyMessage" id="" cols="30" rows="10" class="form-control"></textarea>
-                                        {{-- <textarea name="msg" id="" cols="30" rows="10" class="form-control"></textarea> --}}
-                                    </div>
-                                </div>
-                                {{-- <div class="form-group focused">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"></span>
-                                        </div>
-                                        <textarea name="www" id="" cols="30" rows="10" class="form-control"></textarea>
-                                    </div>
-                                </div> --}}
-                                <div class="text-center">
-                                <button type="submit" class="btn btn-secondary my-4">@lang('lang.Submit')</button>
-                                </div>
-                            </form>
+    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+        <div class="container">
+            <div class="row d-flex align-items-stretch no-gutters">
+                <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
+                    <form role="form" action="{{route('front.contactSend')}}" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="@lang('lang.Name')" name="name" value="{{old('name')}}">
                         </div>
-                    </div>
-                    </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="@lang('lang.Email')" name="email" value="{{old('email')}}">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="type_message" >
+                                <optgroup label="@lang('lang.Type Message')"></optgroup>
+                                <option value="0">@lang('lang.Nothing')</option>
+                                <option value="1">@lang('lang.Suggestion')</option>
+                                <option value="2">@lang('lang.Attention')</option>
+                                <option value="3">@lang('lang.Inquiry')</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="@lang('lang.Subject')" class="form-control"  value="{{ old('subject') }}">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="bodyMessage" id="" cols="30" rows="10" class="form-control">@lang('lang.Message')</textarea>
+                        </div>
+                        <div class="form-group">
+                        <input type="submit" value="@lang('lang.Send Message')" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
                 </div>
-                <div class="col-lg-6 col-10 mx-md-auto">
-                    <img class="ml-lg-5" src="{{url('design/FrontEnd')}}/assets/img/ill/ill.png" width="100%">
+                <div class="col-md-6 d-flex align-items-stretch">
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
-        <!-- SVG separator -->
-        <div class="separator separator-bottom separator-skew">
-            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-            </svg>
-        </div>
     </section>
+
+    <section class="ftco-section contact-section">
+        <div class="container">
+            @if (setting())
+            <div class="row d-flex mb-5 contact-info">
+                <div class="col-md-12 mb-4">
+                    <h2 class="h4">@lang('lang.Contact Information')</h2>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-md-3 d-flex">
+                    <div class="bg-light d-flex align-self-stretch box p-4">
+                        <p><span>@lang('lang.Address'):</span> {{setting()->address}}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="bg-light d-flex align-self-stretch box p-4">
+                        <p><span>@lang('lang.Phone'):</span> <a href="tel://{{setting()->phone}}">{{setting()->phone}}</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="bg-light d-flex align-self-stretch box p-4">
+                        <p><span>@lang('lang.Email'):</span> <a href="mailto:info@yoursite.com">{{setting()->email}}</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="bg-light d-flex align-self-stretch box p-4">
+                        <p><span>@lang('lang.Website')</span> <a href="{{route('home')}}" title="@lang('lang.Home')">balsam-hcare.com</a></p>
+                    </div>
+                </div>
+            </div>
+            @endif
+        </div>
+        </section>
     <!--================End Map Area =================-->
 
 @endsection

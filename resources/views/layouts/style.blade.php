@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ LaravelLocalization::getCurrentLocale() }}">
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
     <!--================Header =================-->
     @include('layouts.header')
     <!--================End Header =================-->
@@ -9,7 +9,7 @@
     <!--================End Navbar =================-->
 
     <!--================Slider =================-->
-    @include('layouts.slider')
+    @yield('slider')
     <!--================End Slider =================-->
 
 

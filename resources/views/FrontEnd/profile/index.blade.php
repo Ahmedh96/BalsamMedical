@@ -1,8 +1,48 @@
 @extends('layouts.style')
 
+@section('title')
+    {{Auth::user()->name}}
+@endsection
 
 @section('content')
     <!--================Map Area =================-->
+
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{url('design/FrontEnd/images/bg_1.jpg')}}); background-position: 50% 0%;" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+                <h1 class="mb-2 bread">
+                    {{Auth::user()->name}}
+                </h1>
+                <p class="breadcrumbs">
+                    <span class="mr-2">
+                        <a href="{{route('home')}}" title="@lang('lang.Home')">@lang('lang.Home')
+                            @if (app()->getLocale() == 'ar')
+                            <i class="ion-ios-arrow-back"></i>
+                            @endif
+                            @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
+                            <i class="ion-ios-arrow-forward"></i>
+                            @endif
+                        </a>
+                    </span>
+                    <span>
+                        <a>
+                            {{Auth::user()->name}}
+                            @if (app()->getLocale() == 'ar')
+                            <i class="ion-ios-arrow-back"></i>
+                            @endif
+                            @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
+                            <i class="ion-ios-arrow-forward"></i>
+                            @endif
+                        </a>
+                    </span>
+                </p>
+            </div>
+            </div>
+        </div>
+    </section>
 
     <section class="section bg-secondary">
         <div class="container">
@@ -20,7 +60,7 @@
                       <div class="card-profile-stats d-flex justify-content-center">
                         <div class="mt-5">
                           <span class="heading">{{$user->comments->count()}}</span>
-                          <span class="description">Comments</span>
+                          <span class="description">@lang('lang.Comments')</span>
                         </div>
                       </div>
                     </div>

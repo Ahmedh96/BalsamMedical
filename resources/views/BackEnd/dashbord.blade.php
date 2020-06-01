@@ -28,7 +28,7 @@
                 <div class="card-icon">
                     <i class="material-icons">folder</i>
                 </div>
-                <h1 class="card-category" style="color:red">@lang('lang.Category')</h1>
+                <h1 class="card-category" style="color:red">@lang('lang.Categories')</h1>
                 <h3 class="card-title">{{$category->count()}}</h3>
                 </div>
                 <div class="card-footer">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="card">
             <div class="card-header card-header-text card-header-warning">
@@ -115,6 +115,6 @@
             </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 @endsection

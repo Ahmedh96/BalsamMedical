@@ -31,11 +31,9 @@
       <footer class="footer">
         <div class="container-fluid">
           <div class="copyright">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a>Enjoy Code</a> for a better web.
+                @lang('lang.Copyright') &copy;<script>document.write(new Date().getFullYear());</script>
+                @lang('lang.All rights reserved') <i class="icon-heart" aria-hidden="true"></i>
+                @lang('lang.By') <a href="" target="_blank">@lang('lang.Enjoy Code')</a>
           </div>
         </div>
       </footer>

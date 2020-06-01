@@ -6,10 +6,10 @@
       -->
     <div class="logo">
       <a href="{{route('admin.dashbord')}}" class="simple-text logo-mini">
-        ب ل
+        B
       </a>
       <a href="{{route('admin.dashbord')}}" class="simple-text logo-normal">
-        بلسم
+        balsam
       </a>
     </div>
     <div class="sidebar-wrapper">
@@ -17,7 +17,7 @@
         <li class="nav-item ">
           <a class="nav-link" href="{{route('admin.dashbord')}}">
             <i class="material-icons">dashboard</i>
-            <p>لوحة التحكم
+            <p>@lang('lang.Dashbord')
             </p>
           </a>
         </li>

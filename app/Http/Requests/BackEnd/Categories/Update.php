@@ -3,6 +3,8 @@
 namespace App\Http\Requests\BackEnd\Categories;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Validation\Rule;
 
 class Update extends FormRequest
 {
@@ -23,11 +25,16 @@ class Update extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'          => ['required', 'string', 'max:100'],
+        $rules = [
             'meta_keywords'     => ['max:255'],
             'meta_description'  => ['max:255'],
         ];
+        foreach (Config::get('translatable.locales') as $locale) {
+            $rules += [$locale . '.name' => ['required', 'string', Rule::unique('category_translations', 'name')->whereNot('category_id', $this->category)]];
+            $rules += [$locale . '.description' => 'required'];
+        }
+
+        return $rules;
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\BackEnd\Categories;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Config;
 
 class Store extends FormRequest
 {
@@ -23,11 +24,15 @@ class Store extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'              => ['required', 'string', 'min:3' , 'max:100'],
+        $rules = [
             'meta_keywords'     => ['max:255'],
             'meta_description'  => ['max:255'],
         ];
+        foreach (Config::get('translatable.locales') as $locale) {
+            $rules += [$locale . '.name' => 'required|string|unique:category_translations,name'];
+            $rules += [$locale . '.description' => 'required'];
+        }
+        return $rules;
     }
 
 

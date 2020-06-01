@@ -7,6 +7,13 @@ if(!function_exists('aurl'))
     }
 }
 
+if (!function_exists('str_replace_me')) {
+	function str_replace_me($name) {
+		return trim(str_replace(' ' , '_' , $name));
+	}
+}
+
+
 if(!function_exists('lang'))
 {
     function lang()

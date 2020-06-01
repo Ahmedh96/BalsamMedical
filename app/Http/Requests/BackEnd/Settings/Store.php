@@ -3,6 +3,7 @@
 namespace App\Http\Requests\BackEnd\Settings;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Config;
 
 class Store extends FormRequest
 {
@@ -23,11 +24,9 @@ class Store extends FormRequest
      */
     public function rules()
     {
-        return [
-            'sitename'              => ['required', 'string', 'min:3' , 'max:100'],
+        $rules = [
             'email'                 => ['required', 'string', 'min:3' , 'max:100'],
             'keywords'              => ['max:255'],
-            'description'           => ['max:255'],
             'logo'                  => ['required' , 'image' , 'mimes:jpg,png,jpeg'],
             'icon'                  => ['required' , 'image' , 'mimes:jpg,png,jpeg' ],
             'main_lang'             => ['required'],
@@ -39,6 +38,11 @@ class Store extends FormRequest
             'twitter'               => ['sometimes'],
             'message_maintenance'   => [''],
         ];
+        foreach (Config::get('translatable.locales') as $locale) {
+            $rules += [$locale . '.sitename' => 'required|string|unique:setting_translations,sitename'];
+            $rules += [$locale . '.description' => 'required'];
+        }
+        return $rules;
     }
 
 

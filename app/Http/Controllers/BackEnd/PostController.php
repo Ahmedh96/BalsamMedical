@@ -79,7 +79,6 @@ class PostController extends Controller
             $file->move(public_path('uploads/Posts') , $fileName);
             $data['image'] = $fileName;
         }
-        $data['slug'] = Str::slug($request->title);
         $data['user_id'] = Auth::user()->id;
         $post = Post::create($data);
         Alert::success(trans('lang.record_update'));
@@ -166,7 +165,10 @@ class PostController extends Controller
 
     public function search(Request $request) {
         $search = strip_tags($request->search);
-        $posts = Post::where('title' , 'like' , '%' .$search . '%')->orWhere('id' , 'like' , '%' . $search . '%')->orderBy('id' , 'desc')->paginate(10);
+        $posts = Post::where(function($q) use ($search){
+            $q->whereTranslationLike('title', '%' . $search . '%');
+            $q->orWhere('id' , 'like' , '%' . $search . '%');
+        })->orderBy('id' , 'desc')->paginate(10);
         return view('BackEnd.posts.index' , compact('posts'));
     }
 }

@@ -3,12 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 
 class Post extends Model
 {
+    use Translatable;
+
+    public $translatedAttributes = ['title' , 'description'];
+
     protected $fillable = [
-        'title' , 'description' , 'image' , 'meta_keywords' , 'meta_description' ,
-        'slug' , 'user_id' , 'category_id'
+        'image' , 'meta_keywords' , 'meta_description' ,
+        'user_id' , 'category_id'
     ];
 
     public function user()

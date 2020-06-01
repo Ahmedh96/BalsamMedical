@@ -20,20 +20,19 @@
                 @csrf
                 @method('PUT')
                 <div class="card-body">
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Title')</label>
-                        <input type="text" name="title" class="form-control"  value="{{ $post->title }}">
-                    </div>
-                    <br>
-
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Description')</label>
-                        <textarea name="description" class="form-control" id="summernote" cols="30" rows="10">{{$post->description }}</textarea>
-                    </div>
-                    <br>
+                    @foreach (Config::get('translatable.locales') as $locale)
+                        <div class="form-group">
+                            <input type="text" name="{{ $locale }}[title]" class="form-control" placeholder="@lang('lang.' . $locale . '.title')"   value="{{ $post->translate($locale)->title }}">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <textarea name="{{ $locale }}[description]" class="form-control"  cols="30" rows="10" placeholder="@lang('lang.' . $locale . '.description')">{{ $post->translate($locale)->description }}</textarea>
+                        </div>
+                        <br><br>
+                    @endforeach
                     <div class="form-group">
                         <select class="form-control" name="category_id">
-                            <option>Select Parent Category</option>
+                            <option>@lang('lang.Select Parent Category')</option>
                             @foreach ($categories as $category)
                                 <optgroup  label="{{ $category->name }}"></optgroup>
 

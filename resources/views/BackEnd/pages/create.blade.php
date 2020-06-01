@@ -14,30 +14,29 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-header card-header-primary text-right" style="background-color:#373a6c;">  <i class="fa fa-plus"></i> @lang('lang.Create Page')</h3>
+                <h3 class="card-header card-header-primary @if(app()->getLocale() == 'ar')  text-right @endif" style="background-color:#373a6c;">  <i class="fa fa-plus"></i> @lang('lang.Create Page')</h3>
             </div>
             <form action="{{route('pages.store')}}" method="POST">
                 @csrf
                 <div class="card-body">
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Name')</label>
-                        <input type="text" name="name" class="form-control"  value="{{ old('name') }}">
-                    </div>
-                    <br>
+                    @foreach (Config::get('translatable.locales') as $locale)
+                        <div class="form-group">
+                            <input type="text" name="{{ $locale }}[name]" class="form-control" placeholder="@lang('lang.' . $locale . '.name')"   value="{{ old($locale . '.name') }}">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <textarea name="{{ $locale }}[description]" class="form-control"  cols="30" rows="10" placeholder="@lang('lang.' . $locale . '.description')" id="summernote" cols="30" rows="10">{{ old($locale . '.description') }}</textarea>
+                        </div>
+                        <br><br>
+                    @endforeach
 
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Description')</label>
-                        <textarea name="description" class="form-control" id="summernote" cols="30" rows="10"></textarea>
-                    </div>
-                    <br>
-
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Meta Keywords')</label>
+                    <div class="form-group text-right">
+                        <label>@lang('lang.Meta Keywords')</label>
                         <input type="text" name="meta_keywords" class="form-control"  value="{{ old('meta_keywords') }}">
                     </div>
 
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Meta Description')</label>
+                    <div class="form-group text-right">
+                        <label>@lang('lang.Meta Description')</label>
                         <input type="text" name="meta_description" class="form-control"  value="{{ old('meta_description') }}">
                     </div>
                 </div>

@@ -14,25 +14,24 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-header card-header-primary text-right" style="background-color:#373a6c;">  <i class="fa fa-user-plus"></i> @lang('lang.Create Post')</h3>
+                <h3 class="card-header card-header-primary @if(app()->getLocale() == 'ar') text-right @endif" style="background-color:#373a6c;">  <i class="fa fa-user-plus"></i> @lang('lang.Create Post')</h3>
             </div>
             <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Title')</label>
-                        <input type="text" name="title" class="form-control"  value="{{ old('title') }}">
-                    </div>
-                    <br>
-
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Description')</label>
-                        <textarea name="description" class="form-control" id="summernote" cols="30" rows="10"></textarea>
-                    </div>
-                    <br>
+                    @foreach (Config::get('translatable.locales') as $locale)
+                        <div class="form-group">
+                            <input type="text" name="{{ $locale }}[title]" class="form-control" placeholder="@lang('lang.' . $locale . '.title')"   value="{{ old($locale . '.title') }}">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <textarea name="{{ $locale }}[description]" class="form-control"  cols="30" rows="10" placeholder="@lang('lang.' . $locale . '.description')">{{ old($locale . '.description') }}</textarea>
+                        </div>
+                        <br><br>
+                    @endforeach
                     <div class="form-group">
                         <select class="form-control" name="category_id">
-                            <option>Select Parent Category</option>
+                            <option>@lang('lang.Select Parent Category')</option>
                             @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"">{{ $category->name }}</option>
                             @endforeach
@@ -41,21 +40,21 @@
                     <br>
 
                     <div>
-                        <label class="bmd-label-floating">@lang('lang.Image')</label>
+                        <label>@lang('lang.Image')</label>
                         <input type="file" name="image" class="form-control">
                     </div>
                     <br>
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Meta Keywords')</label>
+                    <div class="form-group text-right">
+                        <label>@lang('lang.Meta Keywords')</label>
                         <input type="text" name="meta_keywords" class="form-control"  value="{{ old('meta_keywords') }}">
                     </div>
 
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Meta Description')</label>
+                    <div class="form-group text-right">
+                        <label>@lang('lang.Meta Description')</label>
                         <input type="text" name="meta_description" class="form-control"  value="{{ old('meta_description') }}">
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer @if(app()->getLocale() == 'ar') text-right @endif">
                     <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> @lang('lang.Create')</button>
                 </div>
             </form>

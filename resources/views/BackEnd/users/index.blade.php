@@ -50,26 +50,26 @@ swal({
             </form>
         </div>
         <div class="btn-group">
-            <button class="btn btn-default bg-orang">ظهور على حسب</button>
+            <button class="btn btn-default bg-orang">@lang('lang.Appearance depending on')</button>
             <button data-toggle="dropdown" class="btn dropdown-toggle" style="background:linear-gradient(60deg, #373a6c, #373a6c)"><span class="caret"></span></button>
             <ul class="dropdown-menu dropdown-warning">
                 <li><a href="{{aurl('user/1')}}">
-                    المديرين
+                    @lang('lang.Admins')
                 </a></li>
                 <li><a href="{{aurl('user/0')}}">
-                    الاعضاء
+                    @lang('lang.Users')
                 </a></li>
                 <li><a href="{{aurl('user/id-desc')}}">
-                    المضاف اخيرا
+                    @lang('lang.Finally added')
                 </a></li>
                 <li><a href="{{aurl('user/id-asc')}}">
-                    المضاف اولا
+                    @lang('lang.Added first')
                 </a></li>
                 <li><a href="{{aurl('user/created_at-asc')}}">
-                    التاريخ الاحدث
+                    @lang('lang.Latest date')
                 </a></li>
                 <li><a href="{{aurl('user/created_at-desc')}}">
-                    التاريخ الاقدم
+                    @lang('lang.Oldest History')
                 </a></li>
             </ul>
         </div>
@@ -78,7 +78,7 @@ swal({
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header card-header-primary text-right" style="background:linear-gradient(60deg, #373a6c, #373a6c)">
+            <div class="card-header card-header-primary @if(app()->getLocale() == 'ar') text-right @endif" style="background:linear-gradient(60deg, #373a6c, #373a6c)">
                 <div class="card-icon">
                 <i class="material-icons">person</i>
                 </div>
@@ -93,7 +93,6 @@ swal({
                             <th>@lang('lang.Name')</th>
                             <th>@lang('lang.Email')</th>
                             <th>@lang('lang.Image')</th>
-                            {{-- <th>@lang('lang.Assigned Roles')</th> --}}
                             <th>@lang('lang.Status')</th>
                             <th>@lang('lang.Admin')</th>
                             <th>@lang('lang.Actions')</th>
@@ -109,11 +108,6 @@ swal({
                                     <td>
                                         <img src="{{url('uploads/Users/'.$user->image)}}" alt="{{$user->image}}" width="100" height="100">
                                     </td>
-                                    {{-- <td>
-                                        @foreach ($user->roles as $role)
-                                            {{$role->name}} ,
-                                        @endforeach
-                                    </td> --}}
                                     <td>
                                         @if ($user->email_verified_at)
                                             <span class="label label-success">@lang('lang.Active')</span>

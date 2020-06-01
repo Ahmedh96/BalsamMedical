@@ -7,7 +7,6 @@
     });
   </script>
 @endpush
-
 @section('content')
 <div class="row">
     <div class="col-lg-12">
@@ -20,17 +19,16 @@
                 @csrf
                 @method('PUT')
                 <div class="card-body">
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Name')</label>
-                        <input type="text" name="name" class="form-control"  value="{{ $page->name }}">
-                    </div>
-                    <br>
-
-                    <div class="form-group bmd-form-group text-right">
-                        <label class="bmd-label-floating">@lang('lang.Description')</label>
-                        <textarea name="description" class="form-control" id="summernote" cols="30" rows="10">{{$page->description }}</textarea>
-                    </div>
-                    <br>
+                    @foreach (Config::get('translatable.locales') as $locale)
+                        <div class="form-group">
+                            <input type="text" name="{{ $locale }}[name]" class="form-control" placeholder="@lang('lang.' . $locale . '.name')"   value="{{ $page->translate($locale)->name }}">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <textarea name="{{ $locale }}[description]" class="form-control"  cols="30" rows="10" placeholder="@lang('lang.' . $locale . '.description')" id="summernote" cols="30" rows="10">{{ $page->translate($locale)->description }}</textarea>
+                        </div>
+                        <br><br>
+                    @endforeach
 
                     <div class="form-group bmd-form-group text-right">
                         <label class="bmd-label-floating">@lang('lang.Meta Keywords')</label>

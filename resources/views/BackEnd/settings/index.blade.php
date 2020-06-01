@@ -35,7 +35,7 @@ swal({
                 <a href="{{ route('settings.create') }}">
                     <div class="btn btn-info" style="
                         color: white;
-                        background:linear-gradient(60deg, #373a6c, #373a6c)"><i class="fa fa-plus"></i> اضافة اعدادات
+                        background:linear-gradient(60deg, #373a6c, #373a6c)"><i class="fa fa-plus"></i> @lang('lang.Create Setting')
                     </div>
                 </a>
             @endif
@@ -44,7 +44,7 @@ swal({
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header card-header-primary text-right" style="background:linear-gradient(60deg, #373a6c, #373a6c)">
+                <div class="card-header card-header-primary @if(app()->getLocale() == 'ar')  text-right @endif" style="background:linear-gradient(60deg, #373a6c, #373a6c)">
                     <div class="card-icon">
                     <i class="material-icons">settings</i>
                     </div>
@@ -78,9 +78,9 @@ swal({
                                         <td>{{$setting->email}}</td>
                                         <td>
                                             @if ($setting->status == 'open')
-                                                <span class="label label-success">مفتوح</span>
+                                                <span class="label label-success">@lang('lang.Open')</span>
                                             @else
-                                                <span class="label label-inverse">مغلق</span>
+                                                <span class="label label-inverse">@lang('lang.Close')</span>
                                             @endif
                                         </td>
                                         <td>

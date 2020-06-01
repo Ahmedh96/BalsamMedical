@@ -3,6 +3,7 @@
         @if (setting())
             {{setting()->sitename}}
         @endif
+        | @yield('title')
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,6 +30,10 @@
     <link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/flaticon.css">
     <link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/icomoon.css">
     <link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/style.css">
+    @if (setting())
+    <link rel="icon" href="{{url('uploads/Settings/Logo/' . setting()->logo)}}">
+    {{-- <img src="{{url('uploads/Settings/Logo/' . setting()->logo)}}" height="70" width="70" alt="{{setting()->logo}}"> --}}
+    @endif
     {{-- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap" rel="stylesheet">
     <style>
         * {

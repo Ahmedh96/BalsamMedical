@@ -58,9 +58,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
         if(Gate::allows('isAdmin') ) {
-        return view('BackEnd.users.create' , compact('roles'))->with('title' , trans('lang.Create User'));
+        return view('BackEnd.users.create')->with('title' , trans('lang.Create User'));
         }
     }
 
@@ -118,11 +117,8 @@ class UserController extends Controller
 
         $user = Carbon::now();
         $user = User::findOrfail($id);
-        $roles = Role::all();
-
-
         if(Gate::allows('isAdmin') ) {
-        return view('BackEnd.users.edit' , compact('user' , 'roles'))->with('title' , trans('lang.Edit User'));
+        return view('BackEnd.users.edit' , compact('user'))->with('title' , trans('lang.Edit User'));
         }
     }
 

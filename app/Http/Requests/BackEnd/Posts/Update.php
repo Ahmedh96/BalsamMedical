@@ -3,6 +3,8 @@
 namespace App\Http\Requests\BackEnd\Posts;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Validation\Rule;
 
 class Update extends FormRequest
 {
@@ -23,14 +25,19 @@ class Update extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title'                 => ['required', 'string', 'min:3' , 'max:100'],
-            'description'           => ['required'],
+        $rules = [
             'image'                 => ['sometimes' , 'image' , 'mimes:jpg,png,jpeg'],
             'category_id'           => ['required' , 'integer'],
             'meta_keywords'         => ['max:255'],
             'meta_description'      => ['max:255'],
         ];
+
+        foreach (Config::get('translatable.locales') as $locale) {
+            $rules += [$locale . '.title' => ['required', 'string', Rule::unique('post_translations', 'title')->whereNot('post_id', $this->post)]];
+            $rules += [$locale . '.description' => 'required'];
+        }
+
+        return $rules;
     }
 
      /**

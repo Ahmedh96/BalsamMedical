@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BackEnd\Pages\Store;
+use App\Http\Requests\BackEnd\Pages\Update;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -65,8 +66,6 @@ class PageController extends Controller
     public function store(Store $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-
         $page = Page::create($data);
         Alert::success(trans('lang.record_update'));
         return redirect()->route('pages.index');
@@ -102,7 +101,7 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Store $request, $id)
+    public function update(Update $request, $id)
     {
         $data = $request->all();
 
@@ -131,7 +130,10 @@ class PageController extends Controller
 
     public function search(Request $request) {
         $search = strip_tags($request->search);
-        $pages = Page::where('name' , 'like' , '%' .$search . '%')->orWhere('id' , 'like' , '%' . $search . '%')->orderBy('id' , 'desc')->paginate(10);
+        $pages = Page::where(function($q) use ($search){
+            $q->whereTranslationLike('name', '%' . $search . '%');
+            $q->orWhere('id' , 'like' , '%' . $search . '%');
+        })->orderBy('id' , 'desc')->paginate(10);
         return view('BackEnd.pages.index' , compact('pages'));
     }
 }

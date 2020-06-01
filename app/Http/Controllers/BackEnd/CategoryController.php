@@ -76,12 +76,6 @@ class CategoryController extends Controller
     public function store(Store $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-
-
-        //$data = $request->except('_token');
-       // dd($data);
-
         Category::create($data);
         Alert::success(trans('lang.record_update'));
         return redirect()->route('categories.index');
@@ -120,10 +114,6 @@ class CategoryController extends Controller
     public function update(Update $request, $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-
-        $data = $request->except(['_token', '_method']);
-
         Category::find($id)->update($data);
         Alert::success( trans('lang.record_update'));
         return redirect()->route('categories.index');
@@ -147,7 +137,10 @@ class CategoryController extends Controller
 
     public function search(Request $request) {
         $search = strip_tags($request->search);
-        $categories = Category::where('name' , 'like' , '%' .$search . '%')->orWhere('id' , 'like' , '%' . $search . '%')->orderBy('id' , 'desc')->paginate(10);
+        $categories = Category::where(function($q) use ($search){
+            $q->whereTranslationLike('name', '%' . $search . '%');
+            $q->orWhere('id' , 'like' , '%' . $search . '%');
+        })->orderBy('id' , 'desc')->paginate(10);
         return view('BackEnd.categories.index' , compact('categories'));
     }
 }

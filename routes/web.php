@@ -75,11 +75,13 @@ Route::group(
 
             Route::get('/home', 'HomeController@index')->name('home');
             Route::get('/', 'HomeController@index')->name('home');
-            Route::get('category/{slug}' , 'HomeController@CategoryPost')->name('front.category');
-            Route::get('post/{slug}' , 'HomeController@Post')->name('front.post');
-            Route::get('page/{slug}' , 'HomeController@Page')->name('front.page');
-            Route::get('contact-us' , 'HomeController@ContactUS')->name('front.contact');
+            Route::get('category/{id}/{name?}' , 'HomeController@CategoryPost')->name('front.category');
+            Route::get('post/{id}/{name?}' , 'HomeController@Post')->name('front.post');
+            Route::get('page/{id}/{name?}' , 'HomeController@Page')->name('front.page');
+            Route::get('contact-us/{name?}' , 'HomeController@ContactUS')->name('front.contact');
             Route::post('contact-us' , 'HomeController@ContactSend')->name('front.contactSend');
+            Route::get('WhoWeAre/{name?}' , 'HomeController@WhoWeAre')->name('front.WhoWeAre');
+            Route::get('About-us/{name?}' , 'HomeController@AboutUS')->name('front.about');
             Route::post('site/search' , 'HomeController@SiteSearch')->name('front.search');
             Route::get('profile/{id}' , 'HomeController@Profile' )->name('front.profile');
             Route::post('UpdateProfile/{id}' , 'HomeController@UpdateProfile')->name('front.UpdateProfile');        });

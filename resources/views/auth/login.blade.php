@@ -1,301 +1,87 @@
-{{-- @extends('layouts.app')
+@extends('layouts.style')
+
+@section('title')
+@lang('lang.Sign In')
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<section class="hero-wrap hero-wrap-2" style="background-image: url({{url('design/FrontEnd/images/bg_1.jpg')}}); background-position: 50% 0%;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+            <h1 class="mb-2 bread">@lang('lang.Sign In')</h1>
+            <p class="breadcrumbs">
+                <span class="mr-2">
+                    <a href="{{route('home')}}" title="@lang('lang.Home')">@lang('lang.Home')
+                        @if (app()->getLocale() == 'ar')
+                        <i class="ion-ios-arrow-back"></i>
+                        @endif
+                        @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
+                        <i class="ion-ios-arrow-forward"></i>
+                        @endif
+                    </a>
+                </span>
+                <span>@lang('lang.Sign In')
+                    @if (app()->getLocale() == 'ar')
+                    <i class="ion-ios-arrow-back"></i>
+                    @endif
+                    @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
+                    <i class="ion-ios-arrow-forward"></i>
+                    @endif
+                </span>
+            </p>
+        </div>
         </div>
     </div>
-</div>
-@endsection --}}
+</section>
 
-
-<!DOCTYPE html>
-<html lang="{{ LaravelLocalization::getCurrentLocale() }}">
-
-<head>
-    <!--================Header =================-->
-    @include('layouts.header')
-    <!--================End Header =================-->
-
-<body class="register-page">
-  <!-- Navbar -->
-  @include('layouts.navbar')
-  <!-- End Navbar -->
-  <div class="wrapper">
-
-    <section class="section section-shaped section-lg">
-        <div class="shape shape-style-1 bg-gradient-default">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="container pt-lg-7">
-            <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="card bg-secondary shadow border-0">
-                <div class="card-body px-lg-5 py-lg-5">
-                    <div class="text-center text-muted mb-4">
-                    <small>@lang('lang.Sign In')</small>
+<section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+    <div class="container">
+        <br><br>
+        <div class="row d-flex align-items-stretch no-gutters">
+            <div class="col-md-12 order-md-last bg-light">
+                <form role="form" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                        <input id="email" type="email" placeholder="@lang('lang.Email')" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div>
                     </div>
-                    <form role="form" method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="form-group mb-3">
-                            <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                            </div>
-                            <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            </div>
-                        </div>
-                        <div class="form-group focused">
-                            <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                            </div>
-                            <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <div class="form-group focused">
+                        <div class="input-group input-group-alternative">
+                        <input id="password" type="password" placeholder="@lang('lang.Password')" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            </div>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         </div>
-                        <div class="custom-control custom-control-alternative custom-checkbox">
-                            <input class="pull-left mt-1 inline-block" id=" remember" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            {{-- <div class="clearfix"></div> --}}
-                            <label class="pull-left ml-1" for="remember">
-                                @lang('lang.Remember Me')
-                            </label>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary my-4">
-                                @lang('lang.Create')
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                </div>
-                <div class="row mt-3">
-                <div class="col-6">
-                    @if (Route::has('password.request'))
-                        <a class="text-light" href="{{ route('password.request') }}">
-                            <small>@lang('lang.Forgot Password?')</small>
-                        </a>
-                    @endif
-                </div>
-                <div class="col-6 text-right">
-                    <a href="{{route('register')}}" class="text-light"><small>@lang('lang.Register')</small></a>
-                </div>
-                </div>
-            </div>
+                    </div>
+                    <div class="custom-control custom-control-alternative custom-checkbox ">
+                        <input id="remember" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <div class="clearfix"></div>
+                        <label class="" for="remember">
+                            @lang('lang.Remember Me')
+                        </label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary my-4">
+                            @lang('lang.Sign In')
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
-    {{-- <section class="section section-shaped section-lg">
-      <div class="shape shape-style-1 bg-gradient-default">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="container pt-lg-7">
-        <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="card bg-secondary shadow border-0">
-              <div class="card-body px-lg-5 py-lg-5">
-                <div class="text-center text-muted mb-4">
-                  <small>@lang('lang.Register')</small>
-                </div>
-                <form role="form" method="POST" action="{{ route('register') }}">
-                    @csrf
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                      </div>
-                      <input id="name" type="text" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <br><br>
+@endsection
 
-                      @error('name')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                      </div>
-                      <input id="email" type="email" placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                      @error('email')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                    </div>
-                  </div>
-                  <div class="form-group focused">
-                    <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                      </div>
-                      <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                      @error('password')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                    </div>
-                  </div>
-
-                  <div class="form-group focused">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                        </div>
-                        <input id="password-confirm" placeholder="Password Confirmation" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                    </div>
-                 </div>
-                  <div class="text-center">
-                        <button type="submit" class="btn btn-primary">
-                            @lang('lang.Create')
-                        </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> --}}
-    <footer class="footer">
-      <div class="container">
-        <div class="row row-grid align-items-center mb-5">
-          <div class="col-lg-6">
-            <h3 class="text-primary font-weight-light mb-2">Thank you for supporting us!</h3>
-            <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
-          </div>
-          <div class="col-lg-6 text-lg-center btn-wrapper">
-            <button target="_blank" href="https://twitter.com/creativetim" rel="nofollow" class="btn btn-icon-only btn-twitter rounded-circle" data-toggle="tooltip" data-original-title="Follow us">
-              <span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
-            </button>
-            <button target="_blank" href="https://www.facebook.com/CreativeTim/" rel="nofollow" class="btn-icon-only rounded-circle btn btn-facebook" data-toggle="tooltip" data-original-title="Like us">
-              <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
-            </button>
-          </div>
-        </div>
-        <hr>
-        <div class="row align-items-center justify-content-md-between">
-          <div class="col-md-6">
-            <div class="copyright">
-              &copy; 2020 <a href="" target="_blank">Creative Tim</a>.
-            </div>
-          </div>
-          <div class="col-md-6">
-            <ul class="nav nav-footer justify-content-end">
-              <li class="nav-item">
-                <a href="" class="nav-link" target="_blank">Creative Tim</a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link" target="_blank">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link" target="_blank">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link" target="_blank">License</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-    <!--================Header =================-->
-    @include('layouts.footer')
-    <!--================End Header =================-->
-</body>
-
-</html>
