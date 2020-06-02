@@ -81,10 +81,11 @@ return [
      "Subject"      => "konu",
      "Edit"         => "Düzenle",
      "Delete"       => "Sil",
-     "Nothing"      => "Nothing",
-     "Suggestion"   => "Suggestion",
-     "Attention"    => "Attention",
-     "Inquiry"      => "Inquiry",
+     "Nothing"      => "Hiçbir şey",
+     "Suggestion"   => "Öneri",
+     "Attention"    => "Dikkat",
+     "Inquiry"      => "Sorgulama",
+     "Send Message" => "Mesaj Gönder",
 
      //Setting
      "Settings Management"  => "Ayar Yönetimi",

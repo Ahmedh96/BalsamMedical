@@ -4,6 +4,12 @@
     @lang('lang.Contact')
 @endsection
 
+@section('meta')
+<meta name="keywords" content="@lang('lang.Contact')">
+<meta name="description" content="@lang('lang.Who Description')">
+<meta name="author" content="@if (setting()) {{setting()->sitename}} @endif">
+@endsection
+
 @section('content')
     <!--================Map Area =================-->
     <section class="hero-wrap hero-wrap-2" style="background-image: url({{url('design/FrontEnd/images/bg_1.jpg')}}); background-position: 50% 0%;" data-stellar-background-ratio="0.5">
@@ -90,12 +96,12 @@
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light d-flex align-self-stretch box p-4">
-                        <p><span>@lang('lang.Phone'):</span> <a href="tel://{{setting()->phone}}">{{setting()->phone}}</a></p>
+                        <p><span>@lang('lang.Phone'):</span> <a href="#" title="{{setting()->phone}}">{{setting()->phone}}</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light d-flex align-self-stretch box p-4">
-                        <p><span>@lang('lang.Email'):</span> <a href="mailto:info@yoursite.com">{{setting()->email}}</a></p>
+                        <p><span>@lang('lang.Email'):</span> <a href="#" title="{{setting()->email}}">{{setting()->email}}</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">

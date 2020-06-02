@@ -2,11 +2,13 @@
 
 namespace App;
 
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 
-class Post extends Model
+class Post extends Model implements Feedable
 {
     use Translatable;
 
@@ -40,5 +42,24 @@ class Post extends Model
         return $this->hasMany(Comment::class)->whereNull('parent_id');
 
     }
+
+
+    // Start Generate Rss
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->description)
+            ->updated($this->updated_at)
+            ->link(route('front.post' , [$this->id , str_replace_me($this->title)]))
+            ->author("Balsam");
+    }
+
+    public static function getFeedItems()
+    {
+       return Post::all();
+    }
+    // End Generate Rss
 
 }

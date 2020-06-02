@@ -30,9 +30,9 @@
                         </div>
 
                         <ul class="ftco-footer-social list-unstyled @if(app()->getLocale() == 'en' || app()->getLocale() == 'tr') float-md-left float-lft @endif  mt-3 ">
-                        <li class="ftco-animate"><a href="{{setting()->twitter}}" target="_blank"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="{{setting()->facebook}}" target="_blank"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="{{setting()->instagram}}" target="_blank"><span class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a href="{{setting()->twitter}}" rel="nofollow" target="_blank"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="{{setting()->facebook}}" rel="nofollow" target="_blank"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="{{setting()->instagram}}" rel="nofollow" target="_blank"><span class="icon-instagram"></span></a></li>
                     </ul>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                             <div class="block-21 mb-5 d-flex">
                                 <a class="blog-img mr-4 @if(app()->getLocale() == 'ar') ml-3 @endif" style="background-image: url({{url('uploads/Posts/' . $LatestPost->image)}});"></a>
                                 <div class="text">
-                                    <h3 class="heading"><a href="{{route('front.post' , [$LatestPost->id , str_replace_me($LatestPost->name) ])}}" title="{{$LatestPost->title}}">{{$LatestPost->title}}</a></h3>
+                                    <h3 class="heading"><a href="{{route('front.post' , [$LatestPost->id , str_replace_me($LatestPost->title) ])}}" title="{{$LatestPost->title}}">{{$LatestPost->title}}</a></h3>
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar @if(app()->getLocale() == 'ar') float-right ml-2 @endif"></span> {{$LatestPost->created_at}}</a></div>
                                         <div><a href="#"><span class="icon-person @if(app()->getLocale() == 'ar') float-right ml-2 @endif"></span> {{$LatestPost->user->name}}</a></div>

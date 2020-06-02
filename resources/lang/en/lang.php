@@ -128,6 +128,7 @@ return [
          "Suggestion"   => "Suggestion",
          "Attention"    => "Attention",
          "Inquiry"      => "Inquiry",
+         "Send Message" => "Send Message",
 
          //Setting
          "Settings Management"  => "Settings Management",

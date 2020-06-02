@@ -18,6 +18,12 @@
     </script> --}}
 @endpush
 
+@section('meta')
+<meta name="keywords" content="{{$post->meta_keywords}}">
+<meta name="description" content="{{$post->meta_description}}">
+<meta name="author" content="@if (setting()) {{setting()->sitename}} @endif">
+@endsection
+
 @section('content')
     <!--================Map Area =================-->
     <section class="hero-wrap hero-wrap-2" style="background-image: url({{url('design/FrontEnd/images/bg_1.jpg')}}); background-position: 50% 0%;" data-stellar-background-ratio="0.5">
@@ -69,7 +75,7 @@
                             </li>
                             <li>
                                 <span>@lang('lang.Title'):</span>
-                                <a href="{{route('front.post' , [$post->id , str_replace_me($post->name) ])}}">
+                                <a href="{{route('front.post' , [$post->id , str_replace_me($post->title) ])}}" title="{{$post->title}}">
                                     {{$post->title}}
                                 </a>
                             </li>

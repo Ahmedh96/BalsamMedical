@@ -86,7 +86,19 @@ Route::group(
             Route::get('profile/{id}' , 'HomeController@Profile' )->name('front.profile');
             Route::post('UpdateProfile/{id}' , 'HomeController@UpdateProfile')->name('front.UpdateProfile');        });
 
-            Auth::routes(['verify' => true]);
+
+            // Generate Rss
+            Route::feeds();
+            Auth::routes(['verify' => true , 'register' => false]);
+
+
+            // This Code Use To Hide Page Register
+            if (!env('ALLOW_REGISTRATION', false)) {
+                Route::any('/register', function() {
+                    return redirect()->route('home');
+                });
+            }
+
             Route::get('maintenance' , function(){
                 if(setting()->status == 'open') {
                     return redirect()->route('home');

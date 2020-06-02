@@ -129,6 +129,7 @@ return [
      "Suggestion"   => "اقتراح",
      "Attention"    => "تنبية",
      "Inquiry"      => "استفسار",
+     "Send Message" => "ارسال رسالة",
 
      //Setting
      "Settings Management"  => "إدارة المنشورات",

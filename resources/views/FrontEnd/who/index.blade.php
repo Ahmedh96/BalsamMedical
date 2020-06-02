@@ -1,7 +1,13 @@
 @extends('layouts.style')
 
 @section('title')
-@lang('lang.Who We Are')
+    @lang('lang.About Us')
+@endsection
+
+@section('meta')
+<meta name="keywords" content="@lang('lang.Who We Are')">
+<meta name="description" content="@lang('lang.Who Description')">
+<meta name="author" content="@if (setting()) {{setting()->sitename}} @endif">
 @endsection
 
 @section('content')
@@ -37,68 +43,21 @@
         </div>
     </section>
 
-
-    <section class="ftco-section ftco-no-pt ftc-no-pb">
+    <section class="ftco-section ftco-no-pt bg-light ftc-no-pb">
         <div class="container">
             <div class="row no-gutters">
-                @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
-                <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url({{url('design/FrontEnd/images/about.jpg')}});">
-                </div>
-                @endif
-                <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate fadeInUp ftco-animated">
+                <div class="col-md-12 py-4 py-md-5 ftco-animate fadeInUp ftco-animated">
                     <div class="heading-section mb-5">
-                        <div class="pl-md-5 ml-md-5 @if (app()->getLocale() == 'ar') text-right @endif">
-                            <span class="subheading">
-                                @lang('lang.About Us')
-                            </span>
-                            <h2 class="mb-4" style="font-size: 28px;">
-                                @lang('lang.About Head')
-                            </h2>
-                            <p class="lead">
-                                @lang('lang.About Head Desc')
-                            </p>
-                            <span class="subheading">
-                                @lang('lang.About Name')
-                            </span>
+                        <div class="pl-md-5 ml-md-5">
+                            <h2 class="mb-4 text-center" style="font-size: 28px;">@lang('lang.Who We Are')</h2>
                         </div>
                     </div>
                     <div class="pl-md-5 ml-md-5 mb-5">
-                        <p class="lead @if (app()->getLocale() == 'ar') text-right @endif">@lang('lang.About Description')</p>
-                        <div class="row mt-5 pt-2">
-                            <div class="col-lg-12">
-                                <div class="services-2 d-flex">
-                                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-first-aid-kit"></span></div>
-                                    <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
-                                        <h3>@lang('lang.About First')</h3>
-                                        <p>@lang('lang.About First Desc')</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="services-2 d-flex">
-                                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-dropper"></span></div>
-                                    <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
-                                        <h3>@lang('lang.About Last')</h3>
-                                        <p>@lang('lang.About Last Desc')</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="services-2 d-flex">
-                                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-experiment-results"></span></div>
-                                    <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
-                                        <h3>@lang('lang.About Third')</h3>
-                                        <p>@lang('lang.About Third Desc')</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="lead @if (app()->getLocale() == 'ar') text-right @endif">
+                            @lang('lang.Who Description')
+                        </p>
                     </div>
                 </div>
-                @if (app()->getLocale() == 'ar')
-                <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url({{url('design/FrontEnd/images/about.jpg')}});">
-                </div>
-                @endif
             </div>
         </div>
     </section>

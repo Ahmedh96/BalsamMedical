@@ -8,6 +8,12 @@
 @include('layouts.slider')
 @endsection
 
+@section('meta')
+<meta name="keywords" content="@if (setting()) {{setting()->keywords}} @endif">
+<meta name="description" content="@if (setting()) {{setting()->description}} @endif">
+<meta name="author" content="@if (setting()) {{setting()->sitename}} @endif">
+@endsection
+
 @section('content')
     <!--================Map Area =================-->
         <section class="ftco-services ftco-no-pb">
@@ -166,27 +172,15 @@
                         @foreach ($postlatest as $post)
                             <div class="col-md-4 ftco-animate">
                                 <div class="blog-entry">
-                                    {{-- <a href="blog-single.html" class="block-20" style="background-image: url({{asset('design/FrontEnd/images/image_1.jpg')}});">
-                                        <div class="meta-date text-center p-2">
-                                            <span class="day">{{ $post->created_at->format('d') }}</span>
-                                            <span class="mos">{{ $post->created_at->format('m') }}</span>
-                                            <span class="yr">{{ $post->created_at->format('y') }}</span>
-                                        </div>
-                                    </a> --}}
-                                    <a href="{{route('front.post' , [$post->id , str_replace_me($post->name)])}}" class="block-20">
+                                    <a href="{{route('front.post' , [$post->id , str_replace_me($post->title)])}}" title="{{$post->title}}" class="block-20">
                                         <img class="img-responsive w-100 block-20" src="{{url('uploads/Posts/'.$post->image)}}" title="{{$post->title}}" alt="{{$post->title}}">
-                                        <div class="meta-date text-center p-2">
-                                            <span class="day">{{ $post->created_at->format('d') }}</span>
-                                            <span class="mos">{{ $post->created_at->format('m') }}</span>
-                                            <span class="yr">{{ $post->created_at->format('y') }}</span>
-                                        </div>
                                     </a>
                                     <div class="text bg-white p-4">
-                                        <h3 class="heading"><a href="{{route('front.post' , [$post->id , str_replace_me($post->name)])}}" title="{{$post->title}}">{{$post->title}}</a></h3>
+                                        <h3 class="heading"><a href="{{route('front.post' , [$post->id , str_replace_me($post->title)])}}" title="{{$post->title}}">{{$post->title}}</a></h3>
                                         <p>{!! $post->description !!}</p>
                                         <div class="d-flex align-items-center mt-4">
                                             <p class="mb-0">
-                                                <a href="{{route('front.post' , [$post->id , str_replace_me($post->name)])}}" class="btn btn-primary" title="@lang('lang.Show Details')">
+                                                <a href="{{route('front.post' , [$post->id , str_replace_me($post->title)])}}" class="btn btn-primary" title="@lang('lang.Show Details')">
                                                 @if(app()->getLocale() == 'ar')
                                                 <span class="ion-ios-arrow-round-back ml-2"></span>
                                                 @endif

@@ -4,6 +4,13 @@
 @lang('lang.Searches')
 @endsection
 
+@section('meta')
+<meta name="keywords" content="@lang('lang.Searches')"">
+<meta name="description" content="@lang('lang.Who Description')">
+<meta name="author" content="@if (setting()) {{setting()->sitename}} @endif">
+@endsection
+
+
 @section('content')
 
 <section class="hero-wrap hero-wrap-2" style="background-image: url({{url('design/FrontEnd/images/bg_1.jpg')}}); background-position: 50% 0%;" data-stellar-background-ratio="0.5">
