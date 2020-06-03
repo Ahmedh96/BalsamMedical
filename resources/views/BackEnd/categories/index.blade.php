@@ -95,8 +95,8 @@ swal({
                                     <tr>
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->name}}</td>
-                                        <td>{{$category->meta_keywords}}</td>
-                                        <td>{{$category->meta_description}}</td>
+                                        <td>{{Str::limit($category->meta_keywords , 20)}}</td>
+                                        <td>{{Str::limit($category->meta_description , 20)}}</td>
                                         <td>
                                             <a href="{{route('categories.edit' , $category->id)}}" class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
                                             {{-- <div class=""></div> --}}

@@ -100,8 +100,8 @@ swal({
                                         <td>
                                             <img src="{{url('uploads/Posts/'.$post->image)}}" alt="{{$post->image}}" height="100" width="100">
                                         </td>
-                                        <td>{{$post->meta_keywords}}</td>
-                                        <td>{{$post->meta_description}}</td>
+                                        <td>{{Str::limit($post->meta_keywords , 20)}}</td>
+                                        <td>{{Str::limit($post->meta_description , 20)}}</td>
                                         <td>{{$post->category->name}}</td>
                                         <td>
                                             {{-- <a href="{{route('posts.show' , $post->id)}}" class="btn btn-info btn-sm"><i class="material-icons">view_module</i></a> --}}

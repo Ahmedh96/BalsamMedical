@@ -95,7 +95,8 @@ swal({
                                     <tr>
                                         <td>{{$page->id}}</td>
                                         <td>{{$page->name}}</td>                                        <td>{{$page->meta_keywords}}</td>
-                                        <td>{{$page->meta_description}}</td>
+                                        <td>{{Str::limit($page->meta_keywords , 20)}}</td>
+                                        <td>{{Str::limit($page->meta_description , 20)}}</td>
                                         <td>
                                             <a href="{{route('pages.edit' , $page->id)}}" class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
                                             {{-- <div class=""></div> --}}
