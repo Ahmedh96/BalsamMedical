@@ -14,7 +14,7 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="{{route('admin.dashbord')}}">
             <i class="material-icons">dashboard</i>
             <p>@lang('lang.Dashbord')
@@ -23,7 +23,7 @@
         </li>
         <!-- Start Users -->
         @can('isAdmin')
-        <li class="nav-item active">
+        <li class="nav-item {{is_active('users')}}">
           <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="true">
             <i class="material-icons">person</i>
             <p>@lang('lang.Users Management')
@@ -52,7 +52,7 @@
 
 
         <!-- Start Categories -->
-        <li class="nav-item ">
+        <li class="nav-item {{is_active('categories')}}">
             <a class="nav-link" data-toggle="collapse" href="#categories" aria-expanded="true">
                 <i class="material-icons">folder</i>
                 <p>@lang('lang.Categories')
@@ -79,7 +79,7 @@
         <!-- End Categories -->
 
         <!-- Start Pages -->
-        <li class="nav-item ">
+        <li class="nav-item {{is_active('pages')}}">
             <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="true">
                 <i class="material-icons">assignment</i>
                 <p>@lang('lang.Pages')
@@ -106,7 +106,7 @@
         <!-- End Pages -->
 
         <!-- Start Posts -->
-        <li class="nav-item ">
+        <li class="nav-item {{is_active('posts')}}">
             <a class="nav-link" data-toggle="collapse" href="#posts" aria-expanded="true">
                 <i class="material-icons">assignment</i>
                 <p>@lang('lang.Posts')
@@ -134,7 +134,7 @@
 
 
         <!-- Start Contacts -->
-        <li class="nav-item ">
+        <li class="nav-item {{is_active('contacts')}}">
             <a class="nav-link" data-toggle="collapse" href="#contacts" aria-expanded="true">
                 <i class="material-icons">contacts</i>
                 <p>@lang('lang.Contact')
@@ -161,7 +161,7 @@
         <!-- End Contacts -->
 
         <!-- Start Settings -->
-        <li class="nav-item ">
+        <li class="nav-item {{is_active('settings')}}">
             <a class="nav-link" data-toggle="collapse" href="#settings" aria-expanded="true">
                 <i class="material-icons">settings</i>
                 <p>@lang('lang.Settings')

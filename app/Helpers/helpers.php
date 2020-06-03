@@ -1,4 +1,13 @@
 <?php
+
+//Add Active class To link In Side-Bar
+if(!function_exists('is_active')) {
+    function is_active($routeName) {
+        return null !== request()->segment(3) && request()->segment(3) == $routeName ? 'active' : '';
+    }
+}
+
+
 if(!function_exists('aurl'))
 {
     function aurl($url = null)

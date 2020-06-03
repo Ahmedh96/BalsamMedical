@@ -13,7 +13,7 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-header card-header-primary text-right" style="background-color:#373a6c;">  <i class="fa fa-edit"></i> @lang('lang.Update Page')</h3>
+                <h3 class="card-header card-header-primary @if(app()->getLocale() == 'ar') text-right @endif" style="background-color:#373a6c;">  <i class="fa fa-edit"></i> @lang('lang.Update Page')</h3>
             </div>
             <form action="{{route('pages.update' , $page->id)}}" method="POST">
                 @csrf
@@ -32,15 +32,15 @@
 
                     <div class="form-group bmd-form-group text-right">
                         <label class="bmd-label-floating">@lang('lang.Meta Keywords')</label>
-                        <input type="text" name="meta_keywords" class="form-control"  value="{{$page->meta_keywords }}">
+                        <textarea name="meta_keywords" class="form-control" id="" cols="30" rows="10">{{$page->meta_keywords }}</textarea>
                     </div>
 
                     <div class="form-group bmd-form-group text-right">
                         <label class="bmd-label-floating">@lang('lang.Meta Description')</label>
-                        <input type="text" name="meta_description" class="form-control"  value="{{$page->meta_description }}">
+                        <textarea name="meta_description" class="form-control" id="" cols="30" rows="10">{{$page->meta_description }}</textarea>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer @if(app()->getLocale() == 'ar') text-right @endif">
                     <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> @lang('lang.Save')</button>
                 </div>
             </form>

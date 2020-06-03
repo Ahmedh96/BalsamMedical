@@ -38,9 +38,9 @@
   <!-- Library for adding dinamically elements -->
   <script src="{{url('design/BackEnd/')}}/assets/js/plugins/arrive.min.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
+  {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script> --}}
   <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="../../../../buttons.github.io/buttons.js"></script>
+  {{-- <script async defer src="../../../../buttons.github.io/buttons.js"></script> --}}
   <!-- Chartist JS -->
   <script src="{{url('design/BackEnd/')}}/assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -226,7 +226,7 @@
     });
   </script>
   <!-- Sharrre libray -->
-  <script src="{{url('design/BackEnd/')}}/assets/demo/jquery.sharrre.js"></script>
+  {{-- <script src="{{url('design/BackEnd/')}}/assets/demo/jquery.sharrre.js"></script>
   <script>
     $(document).ready(function() {
 
@@ -318,4 +318,4 @@
     $(document).ready(function() {
       md.checkFullPageBackgroundImage();
     });
-  </script>
+  </script> --}}

@@ -24,7 +24,7 @@ class CreateSettingsTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
             $table->string('main_lang')->default('ar');
-            $table->longtext('keywords')->nullable();
+            $table->longText('keywords')->nullable();
             $table->enum('status', ['open', 'close'])->default('open');
             $table->longtext('message_maintenance')->nullable();
             $table->timestamps();

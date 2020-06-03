@@ -6,7 +6,7 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-header card-header-primary text-right" style="background-color:#373a6c;">  <i class="fa fa-user-plus"></i> @lang('lang.Update Contact')</h3>
+                <h3 class="card-header card-header-primary @if(app()->getLocale() == 'ar') text-right @endif" style="background-color:#373a6c;">  <i class="fa fa-user-plus"></i> @lang('lang.Update Contact')</h3>
             </div>
             <form action="{{route('contacts.update' , $contact->id)}}" method="POST">
                 @csrf
@@ -43,7 +43,7 @@
                         <textarea name="message" class="form-control" id="" cols="30" rows="10">{{ $contact->message }}"></textarea>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer @if(app()->getLocale() == 'ar') text-right @endif">
                     <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> @lang('lang.Create')</button>
                 </div>
             </form>

@@ -32,15 +32,15 @@
 
                     <div class="form-group text-right">
                         <label>@lang('lang.Meta Keywords')</label>
-                        <input type="text" name="meta_keywords" class="form-control"  value="{{ old('meta_keywords') }}">
+                        <textarea name="meta_keywords" class="form-control" id="" cols="30" rows="10">{{ old('meta_keywords') }}</textarea>
                     </div>
 
                     <div class="form-group text-right">
                         <label>@lang('lang.Meta Description')</label>
-                        <input type="text" name="meta_description" class="form-control"  value="{{ old('meta_description') }}">
+                        <textarea name="meta_description" class="form-control" id="" cols="30" rows="10">{{ old('meta_description') }}</textarea>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer @if(app()->getLocale() == 'ar') text-right @endif">
                     <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> @lang('lang.Create')</button>
                 </div>
             </form>

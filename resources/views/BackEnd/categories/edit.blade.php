@@ -28,15 +28,17 @@ Categories | Edit
                         <br><br>
                     @endforeach
 
-                    <div class="form-group">
-                        <input type="text" name="meta_keywords" class="form-control" placeholder="@lang('lang.Type Meta Keywords')" value="{{$category->meta_keywords}}">
+                    <div class="form-group bmd-form-group text-right">
+                        <label class="bmd-label-floating">@lang('lang.Meta Keywords')</label>
+                        <textarea name="meta_keywords" class="form-control" id="" cols="30" rows="10">{{$category->meta_keywords }}</textarea>
                     </div>
 
-                    <div class="form-group">
-                        <input type="text" name="meta_description" class="form-control" placeholder="@lang('lang.Type Meta Description')" value="{{$category->meta_description}}">
+                    <div class="form-group bmd-form-group text-right">
+                        <label class="bmd-label-floating">@lang('lang.Meta Description')</label>
+                        <textarea name="meta_description" class="form-control" id="" cols="30" rows="10">{{$category->meta_description }}</textarea>
                     </div>
                     <br>
-                    <div class="form-group text-right">
+                    <div class="form-group @if(app()->getLocale() == 'ar') text-right @endif">
                         <button type="submit" class="btn btn-primary">@lang('lang.Save')</button>
                     </div>
                 </form>

@@ -26,8 +26,8 @@ class Update extends FormRequest
     public function rules()
     {
         $rules = [
-            'meta_keywords'     => ['max:255'],
-            'meta_description'  => ['max:255'],
+            'meta_keywords'         => ['min:3'],
+            'meta_description'      => ["min:3"],
         ];
         foreach (Config::get('translatable.locales') as $locale) {
             $rules += [$locale . '.name' => ['required', 'string', Rule::unique('category_translations', 'name')->whereNot('category_id', $this->category)]];

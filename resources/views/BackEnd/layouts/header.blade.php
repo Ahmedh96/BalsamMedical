@@ -60,7 +60,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{url('design/BackEnd/')}}/assets/demo/demo.css" rel="stylesheet" />
     <!-- Google Tag Manager -->
-    <script>
+    {{-- <script>
         (function(w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
@@ -75,6 +75,6 @@
             '../../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
-    </script>
+    </script> --}}
     <!-- End Google Tag Manager -->
 </head>

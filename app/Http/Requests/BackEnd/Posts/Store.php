@@ -27,8 +27,8 @@ class Store extends FormRequest
         $rules = [
             'image'                 => ['required' , 'image' , 'mimes:jpg,png,jpeg'],
             'category_id'           => ['required' , 'integer'],
-            'meta_keywords'         => ['max:255'],
-            'meta_description'      => ['max:255'],
+            'meta_keywords'         => ['min:3'],
+            'meta_description'      => ["min:3"],
         ];
 
         foreach (Config::get('translatable.locales') as $locale) {

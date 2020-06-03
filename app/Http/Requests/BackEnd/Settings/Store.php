@@ -26,7 +26,7 @@ class Store extends FormRequest
     {
         $rules = [
             'email'                 => ['required', 'string', 'min:3' , 'max:100'],
-            'keywords'              => ['max:255'],
+            'keywords'              => ['min:3'],
             'logo'                  => ['required' , 'image' , 'mimes:jpg,png,jpeg'],
             'icon'                  => ['required' , 'image' , 'mimes:jpg,png,jpeg' ],
             'main_lang'             => ['required'],

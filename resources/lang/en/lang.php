@@ -104,7 +104,7 @@ return [
 
     //start section department
     "Categories"                => 'Categories',
-    "Category Management"       => "Category Management",
+    "Categories Management"     => "Categories Management",
     "Create Category"           => "Create Category",
     "Edit Category"             => 'Edit Category',
     "Meta Keywords"             => 'Meta Keywords',

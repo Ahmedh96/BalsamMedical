@@ -14,7 +14,7 @@
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-header card-header-primary text-right" style="background-color:#373a6c;">  <i class="fa fa-edit"></i> @lang('lang.Update Post')</h3>
+                <h3 class="card-header card-header-primary @if(app()->getLocale() == 'ar') text-right @endif" style="background-color:#373a6c;">  <i class="fa fa-edit"></i> @lang('lang.Edit Post')</h3>
             </div>
             <form action="{{route('posts.update' , $post->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -34,11 +34,7 @@
                         <select class="form-control" name="category_id">
                             <option>@lang('lang.Select Parent Category')</option>
                             @foreach ($categories as $category)
-                                <optgroup  label="{{ $category->name }}"></optgroup>
-
-                                @foreach ($category->children as $child)
-                                    <option value="{{ $child->id }}" {{$post->category_id == $child->id ? 'selected' : ''}}>{{ $child->name }}</option>
-                                @endforeach
+                                <option value="{{ $category->id }}" {{$post->category_id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -52,15 +48,15 @@
                     <br>
                     <div class="form-group bmd-form-group text-right">
                         <label class="bmd-label-floating">@lang('lang.Meta Keywords')</label>
-                        <input type="text" name="meta_keywords" class="form-control"  value="{{$post->meta_keywords }}">
+                        <textarea name="meta_keywords" class="form-control" id="" cols="30" rows="10">{{$post->meta_keywords }}</textarea>
                     </div>
 
                     <div class="form-group bmd-form-group text-right">
                         <label class="bmd-label-floating">@lang('lang.Meta Description')</label>
-                        <input type="text" name="meta_description" class="form-control"  value="{{$post->meta_description }}">
+                        <textarea name="meta_description" class="form-control" id="" cols="30" rows="10">{{$post->meta_description }}</textarea>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer @if(app()->getLocale() == 'ar') text-right @endif">
                     <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> @lang('lang.Save')</button>
                 </div>
             </form>

@@ -24,12 +24,14 @@
                         <br><br>
                     @endforeach
 
-                    <div class="form-group">
-                        <input type="text" name="meta_keywords" class="form-control" placeholder="@lang('lang.Type Meta Keywords')" value="{{old('meta_keywords')}}">
+                    <div class="form-group text-right">
+                        <label>@lang('lang.Meta Keywords')</label>
+                        <textarea name="meta_keywords" class="form-control" id="" cols="30" rows="10">{{ old('meta_keywords') }}</textarea>
                     </div>
 
-                    <div class="form-group">
-                        <input type="text" name="meta_description" class="form-control" placeholder="@lang('lang.Type Meta Description')" value="{{old('meta_description')}}">
+                    <div class="form-group text-right">
+                        <label>@lang('lang.Meta Description')</label>
+                        <textarea name="meta_description" class="form-control" id="" cols="30" rows="10">{{ old('meta_description') }}</textarea>
                     </div>
                     <br>
                     <div class="form-group @if(app()->getLocale() == 'ar') text-right @endif">

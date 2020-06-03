@@ -21,7 +21,7 @@ User Edit
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">@lang('lang.Email')</label>
                         <input type="text" name="email" class="form-control" placeholder="@lang('lang.Type Email')" value="{{$user->email}}">
                     </div>
 
