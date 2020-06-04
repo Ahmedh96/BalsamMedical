@@ -29,12 +29,13 @@
     <link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/jquery.timepicker.css">
 
 
-    <link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/flaticon.css">
+    <!--<link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/flaticon.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/icomoon.css">
     <link rel="stylesheet" href="{{url('design/FrontEnd')}}/css/style.css">
     @if (setting())
-    <link rel="icon" href="{{url('uploads/Settings/Logo/' . setting()->logo)}}">
-    {{-- <img src="{{url('uploads/Settings/Logo/' . setting()->logo)}}" height="70" width="70" alt="{{setting()->logo}}"> --}}
+    <link rel="icon" href="{{url('public/uploads/Settings/Logo/' . setting()->logo)}}">
+    {{-- <img src="{{url('public/uploads/Settings/Logo/' . setting()->logo)}}" height="70" width="70" alt="{{setting()->logo}}"> --}}
     @endif
     {{-- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap" rel="stylesheet">
     <style>

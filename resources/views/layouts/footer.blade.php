@@ -109,12 +109,12 @@
                 </ul>
                 </div>
             </div>
+            @if ($pages->count() > 0)
             <div class="col-md">
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                     <h2 class="ftco-heading-2">@lang('lang.Pages')</h2>
                     <ul class="list-unstyled">
-                        <!-- Start Category -->
-                        @if ($pages)
+                        <!-- Start Pages -->
                             @foreach ($pages as $page)
                             <li>
                                 <a href="{{route('front.page' , [$page->id , str_replace_me($page->name) ])}}" title="{{$page->name}}">
@@ -127,18 +127,18 @@
                                 </a>
                             </li>
                             @endforeach
-                        @endif
-                        <!-- End Category -->
+                        <!-- End Pages -->
                     </ul>
                 </div>
             </div>
+            @endif
             <div class="col-md">
                 <div class="ftco-footer-widget mb-5">
                 <h2 class="ftco-heading-2">@lang('lang.Recent Posts')</h2>
                     @if ($LatestPosts)
                         @foreach ($LatestPosts as $LatestPost)
                             <div class="block-21 mb-5 d-flex">
-                                <a class="blog-img mr-4 @if(app()->getLocale() == 'ar') ml-3 @endif" style="background-image: url({{url('uploads/Posts/' . $LatestPost->image)}});"></a>
+                                <a class="blog-img mr-4 @if(app()->getLocale() == 'ar') ml-3 @endif"  style="background-image: url({{url('uploads/Posts/' . $LatestPost->image)}});border-radius:2px" title="{{$LatestPost->title}}"></a>
                                 <div class="text">
                                     <h3 class="heading"><a href="{{route('front.post' , [$LatestPost->id , str_replace_me($LatestPost->title) ])}}" title="{{$LatestPost->title}}">{{$LatestPost->title}}</a></h3>
                                     <div class="meta">

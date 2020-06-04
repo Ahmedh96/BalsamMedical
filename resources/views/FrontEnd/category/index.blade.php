@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="text-center">{{$category->name}}</h3><br>
-                <p class="lead @if(app()->getLocale() == 'ar') text-right @endif">{{$category->description}}</p>
+                <p class="lead @if(app()->getLocale() == 'ar') text-right @endif">{!!$category->description!!}</p>
             </div>
             <br><br>
             @foreach ($category->posts as $post)

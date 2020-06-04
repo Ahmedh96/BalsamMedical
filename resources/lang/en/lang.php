@@ -104,6 +104,7 @@ return [
 
     //start section department
     "Categories"                => 'Categories',
+    "Category"                  => "Category",
     "Categories Management"     => "Categories Management",
     "Create Category"           => "Create Category",
     "Edit Category"             => 'Edit Category',
@@ -156,6 +157,7 @@ return [
          "Show Post"            => "Show Post",
          "Image"                => "Image",
          "Select Parent Category"   => "Select Parent Category",
+         "Title"                => "Title",
 
         //Pages
         "Pages"                => "Pages",

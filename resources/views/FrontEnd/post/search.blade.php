@@ -60,7 +60,7 @@
                                 <img class="card-img-top" src="{{url('uploads/Posts/'.$post->image)}}" alt="{{$post->title}}" style="max-height: 200px;">
                             </a>
                             <div class="card-body">
-                                <a href="{{route('front.post' , [$post->id , str_replace_me($post->title) ] )}})}}" title="{{$post->title}}">
+                                <a href="{{route('front.post' , [$post->id , str_replace_me($post->title) ] )}}" title="{{$post->title}}">
                                     <h4 class="text-center">{{$post->title}}</h4>
                                 </a>
                             </div>

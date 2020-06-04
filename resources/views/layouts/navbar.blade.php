@@ -4,7 +4,7 @@
             @if (setting())
                 <div class="col-lg-1 pr-4 align-items-center">
                     <a class="navbar-brand" href="{{route('home')}}">
-                        <img src="{{url('uploads/Settings/Logo/' . setting()->logo)}}" height="70" width="70" alt="">
+                        <img src="{{url('uploads/Settings/Logo/' . setting()->logo)}}" height="70" width="70" alt="{{setting()->sitename}}">
                     </a>
                 </div>
                 <div class="col-lg-11 d-none d-md-block">

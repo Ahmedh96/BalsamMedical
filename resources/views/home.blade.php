@@ -23,7 +23,8 @@
                     <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
                         <div class="media block-6 d-block text-center">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-doctor"></span>
+                                <!--<span class="flaticon-doctor"></span>-->
+                                <i class="fa fa-medkit fa-2x" style="color:white"  aria-hidden="true"></i>
                             </div>
                             <div class="media-body p-2 mt-3">
                                 <h3 class="heading">{{$category->name}}</h3>
@@ -38,7 +39,8 @@
                     <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
                         <div class="media block-6 d-block text-center">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-24-hours"></span>
+                                <!--<span class="flaticon-24-hours"></span>-->
+                                 <i class="fa fa-h-square fa-2x" style="color:white" ></i>
                             </div>
                             <div class="media-body p-2 mt-3">
                                 <h3 class="heading">@lang('lang.Opening Hours')</h3>
@@ -72,6 +74,9 @@
         <section class="ftco-section ftco-no-pt ftc-no-pb">
             <div class="container">
                 <div class="row no-gutters">
+
+					<!--<div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0 img-responsive" style="background-image: url({{url('design/FrontEnd/images/about.jpg')}});">-->
+					<!--</div>                    -->
                     <img class="col-md-5 pl-5 img-responsive" src="{{url('design/FrontEnd/images/about.jpg')}}" title="@lang('lang.About Us')" alt="@lang('lang.About Us')">
                     <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate fadeInUp ftco-animated">
                         <div class="heading-section mb-5">
@@ -92,10 +97,13 @@
                         </div>
                         <div class="pl-md-5 ml-md-5 mb-5">
                             <p class="lead @if (app()->getLocale() == 'ar') text-right @endif">@lang('lang.About Description')</p>
-                            <div class="row mt-5 pt-2">
+                            <div class="row">
                                 <div class="col-lg-12">
                                     <div class="services-2 d-flex">
-                                        <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-first-aid-kit"></span></div>
+                                        <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                            <!--<span class="flaticon-first-aid-kit"></span>-->
+                                            <i class="fa fa-h-square fa-2x" style="color:#2f89fc" aria-hidden="true"></i>
+                                        </div>
                                         <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
                                             <h3>@lang('lang.About First')</h3>
                                             <p>@lang('lang.About First Desc')</p>
@@ -104,7 +112,10 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="services-2 d-flex">
-                                        <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-dropper"></span></div>
+                                        <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                            <!--<span class="flaticon-dropper"></span>-->
+                                            <i class="fa fa-stethoscope fa-2x" style="color:#2f89fc" aria-hidden="true"></i>
+                                        </div>
                                         <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
                                             <h3>@lang('lang.About Last')</h3>
                                             <p>@lang('lang.About Last Desc')</p>
@@ -113,7 +124,10 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="services-2 d-flex">
-                                        <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-experiment-results"></span></div>
+                                        <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                            <!--<span class="flaticon-experiment-results"></span>-->
+                                            <i class="fa fa-ambulance fa-2x" style="color:#2f89fc" aria-hidden="true"></i>
+                                        </div>
                                         <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
                                             <h3>@lang('lang.About Third')</h3>
                                             <p>@lang('lang.About Third Desc')</p>
@@ -143,7 +157,8 @@
                         <div class="col-md-3 d-flex  mr-5 mb-4 services align-self-stretch p-4 ftco-animate">
                             <div class="media block-6 d-block text-center">
                                 <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="flaticon-doctor"></span>
+                                    <!--<span class="flaticon-doctor"></span>-->
+                                    <i class="fa fa-heartbeat fa-2x" style="color:white" aria-hidden="true"></i>
                                 </div>
                                 <div class="media-body p-2 mt-3">
                                     <h3 class="heading">{{$category->name}}</h3>
@@ -173,7 +188,7 @@
                             <div class="col-md-4 ftco-animate">
                                 <div class="blog-entry">
                                     <a href="{{route('front.post' , [$post->id , str_replace_me($post->title)])}}" title="{{$post->title}}" class="block-20">
-                                        <img class="img-responsive w-100 block-20" src="{{url('uploads/Posts/'.$post->image)}}" title="{{$post->title}}" alt="{{$post->title}}">
+                                        <img class="img-responsive w-100 block-20" style="border-radius: 20px;" src="{{url('uploads/Posts/'.$post->image)}}" title="{{$post->title}}" alt="{{$post->title}}">
                                     </a>
                                     <div class="text bg-white p-4">
                                         <h3 class="heading"><a href="{{route('front.post' , [$post->id , str_replace_me($post->title)])}}" title="{{$post->title}}">{{$post->title}}</a></h3>
