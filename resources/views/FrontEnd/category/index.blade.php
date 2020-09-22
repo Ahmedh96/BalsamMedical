@@ -48,7 +48,7 @@
     </div>
 </section>
 
-<section class="ftco-section">
+<section class="ftco-section" style="border-bottom:3px solid #d20505;border-top:3px solid #d20505;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -61,7 +61,7 @@
                     <div class="rounded overflow-hidden ">
                         <div style="width: 20rem;">
                             <a href="{{route('front.post' , [$post->id , str_replace_me($post->title) ] )}}" title="{{$post->title}}">
-                                <img class="card-img-top" src="{{url('uploads/Posts/'.$post->image)}}" alt="{{$post->title}}" style="max-height: 200px;">
+                                <img class="card-img-top" src="{{url('uploads/Posts/'.$post->image)}}" alt="{{$post->title}}" style="max-height: 200px;border-radius: 20px; border:3px solid #d20505">
                             </a>
                             <div class="card-body">
                                 <a href="{{route('front.post' , [$post->id , str_replace_me($post->title) ] )}})}}" title="{{$post->title}}">

@@ -43,7 +43,7 @@
         </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt bg-light ftc-no-pb">
+    <section class="ftco-section ftco-no-pt bg-light ftc-no-pb" style="border-bottom:3px solid #d20505;border-top:3px solid #d20505;">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-md-12 py-4 py-md-5 ftco-animate fadeInUp ftco-animated">

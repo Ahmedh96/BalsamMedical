@@ -6,9 +6,9 @@
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
-                    <div class="col-md-6 text ftco-animate">
-                        <h1 class="mb-4">{{$LatestPost->title}}</h1>
-                        <h3 class="subheading">{!! Str::limit($LatestPost->description , 30 )  !!}</h3>
+                    <div class="col-md-12 text ftco-animate">
+                        <h1 class="mb-4" style="color:black">{{$LatestPost->title}}</h1>
+                        <!-- <h3 class="subheading">{!! Str::limit($LatestPost->description , 30 )  !!}</h3> -->
                         <p><a href="{{route('front.post' , [$LatestPost->id , str_replace_me($LatestPost->title)])}}" title="{{$LatestPost->title}}" class="btn btn-secondary px-4 py-3 mt-3">@lang('lang.Show Details')</a></p>
                     </div>
                     </div>

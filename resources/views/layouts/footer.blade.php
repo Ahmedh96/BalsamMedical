@@ -12,32 +12,107 @@
     <div class="container @if(app()->getLocale() == 'ar') text-right @endif">
         <div class="row mb-5">
             @if (setting())
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-5">
+            <div class="col-md-6">
+                <div class="ftco-footer-widget mb-5">
                     <h2 class="ftco-heading-2 logo">
-                        <img src="{{url('uploads/Settings/Logo/' . setting()->logo)}}" height="70" width="70" alt="">
+                        <img src="{{url('uploads/Settings/Logo/' . setting()->logo)}}" height="100" width="230" alt="{{setting()->sitename}}">
                     </h2>
-                    <p>{{setting()->description}}</p>
-                    </div>
-                    <div class="ftco-footer-widget mb-5">
-                        <h2 class="ftco-heading-2">@lang('lang.Have a Questions')</h2>
-                        <div class="block-23 mb-3">
-                        <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">{{setting()->address}}</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{setting()->phone}}</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{setting()->email}}</span></a></li>
-                        </ul>
+                    <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+                        <div class="heading-section mb-5">
+                            <div class="@if (app()->getLocale() == 'ar') pl-md-5 ml-md-5 text-right @endif">
+                                <span class="subheading text-white">
+                                    @lang('lang.About Us')
+                                </span>
+                                <h2 class="mb-4" style="font-size: 28px;">
+                                    @lang('lang.About Head')
+                                </h2>
+                                <p class="lead">
+                                    @lang('lang.About Head Desc')
+                                </p>
+                                <span class="subheading text-white">
+                                    @lang('lang.About Name')
+                                </span>
+                            </div>
                         </div>
+                        <div class="@if (app()->getLocale() == 'ar') pl-md-5 ml-md-5 @endif  mb-5">
+                            <p class="lead @if (app()->getLocale() == 'ar') text-right @endif">@lang('lang.About Description')</p>
+                            <div class="accordion" id="accordionExample">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="card text-white bg-secondary">
+                                            <div class="card-header" id="headingOne">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-white text-left @if (app()->getLocale() == 'ar') text-right mr-4 @endif collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                    @lang('lang.About First')
+                                                    <i class="fa fa-plus fa-2x d-none d-sm-block pull-right @if (app()->getLocale() == 'ar') pull-left @endif"></i>
+                                                    </button>
+                                                </h2>
+                                            </div>
 
-                        <ul class="ftco-footer-social list-unstyled @if(app()->getLocale() == 'en' || app()->getLocale() == 'tr') float-md-left float-lft @endif  mt-3 ">
-                        <li class="ftco-animate"><a href="{{setting()->twitter}}" rel="nofollow" target="_blank"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="{{setting()->facebook}}" rel="nofollow" target="_blank"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="{{setting()->instagram}}" rel="nofollow" target="_blank"><span class="icon-instagram"></span></a></li>
-                    </ul>
+                                            <div id="collapseOne" class="collapse @if (app()->getLocale() == 'ar') text-right mr-4 @endif" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                @lang('lang.About First Desc')
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="{{url('design/frontEnd/images/dept-1.jpg')}}" class="img-first" width="50" height="70" alt="">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="card bg-secondary text-white ">
+                                            <div class="card-header" id="headingTwo">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-left text-white @if (app()->getLocale() == 'ar') text-right mr-4 @endif collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        @lang('lang.About Last')
+                                                        <i class="fa fa-plus fa-2x d-none d-sm-block pull-right @if (app()->getLocale() == 'ar') pull-left @endif"></i>
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse @if (app()->getLocale() == 'ar') text-right mr-4 @endif" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    @lang('lang.About Last Desc')
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="{{url('design/frontEnd/images/dept-1.jpg')}}" class="img-second" width="50" height="70" alt="">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="card bg-secondary text-white">
+                                            <div class="card-header" id="headingThree">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-left text-white @if (app()->getLocale() == 'ar') text-right mr-4 @endif collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        @lang('lang.About Third')
+                                                        <i class="fa fa-plus fa-2x d-none d-sm-block pull-right @if (app()->getLocale() == 'ar') pull-left @endif"></i>
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseThree" class="collapse @if (app()->getLocale() == 'ar') text-right mr-4 @endif" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    @lang('lang.About Third Desc')
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="{{url('design/frontEnd/images/dept-1.jpg')}}" class="img-third" width="50" height="70" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
             @endif
-            <div class="col-md">
+            <div class="col-md-2">
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                 <h2 class="ftco-heading-2">@lang('lang.Links')</h2>
                 <ul class="list-unstyled">
@@ -110,7 +185,7 @@
                 </div>
             </div>
             @if ($pages->count() > 0)
-            <div class="col-md">
+            <div class="col-md-2">
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                     <h2 class="ftco-heading-2">@lang('lang.Pages')</h2>
                     <ul class="list-unstyled">
@@ -132,7 +207,7 @@
                 </div>
             </div>
             @endif
-            <div class="col-md">
+            <div class="col-md-2">
                 <div class="ftco-footer-widget mb-5">
                 <h2 class="ftco-heading-2">@lang('lang.Recent Posts')</h2>
                     @if ($LatestPosts)
@@ -152,12 +227,6 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-5">
-                    <h2 class="ftco-heading-2">@lang('lang.Opening Hours')</h2>
-                    <h3 class="open-hours pl-4"><span class="ion-ios-time mr-3 @if(app()->getLocale() == 'ar') ml-3 @endif"></span>@lang('lang.We are open')</h3>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
@@ -170,3 +239,8 @@
         </div>
     </div>
 </footer>
+
+@push
+<script>
+</script>
+@endpush

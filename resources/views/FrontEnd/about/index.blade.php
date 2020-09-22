@@ -45,12 +45,11 @@
     </section>
 
 
-    <section class="ftco-section ftco-no-pt ftc-no-pb">
+    <section class="ftco-section ftco-no-pt ftc-no-pb" style="border-bottom:3px solid #d20505;border-top:3px solid #d20505;">
         <div class="container">
             <div class="row no-gutters">
                 @if (app()->getLocale() == 'en' || app()->getLocale() == 'tr')
-                <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url({{url('design/FrontEnd/images/about.jpg')}});">
-                </div>
+                <img class="col-md-5 pl-5 img-responsive" src="{{url('design/FrontEnd/images/about.jpg')}}" title="@lang('lang.About Us')" alt="@lang('lang.About Us')">
                 @endif
                 <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate fadeInUp ftco-animated">
                     <div class="heading-section mb-5">
@@ -71,31 +70,52 @@
                     </div>
                     <div class="pl-md-5 ml-md-5 mb-5">
                         <p class="lead @if (app()->getLocale() == 'ar') text-right @endif">@lang('lang.About Description')</p>
-                        <div class="row mt-5 pt-2">
-                            <div class="col-lg-12">
-                                <div class="services-2 d-flex">
-                                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-first-aid-kit"></span></div>
-                                    <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
-                                        <h3>@lang('lang.About First')</h3>
-                                        <p>@lang('lang.About First Desc')</p>
+                        <div class="accordion" id="accordionExample">
+                            <div class="card text-white bg-secondary">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-white text-left @if (app()->getLocale() == 'ar') text-right mr-4 @endif collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                         @lang('lang.About First')
+                                         <i class="fa fa-plus fa-2x d-none d-sm-block pull-right @if (app()->getLocale() == 'ar') pull-left @endif"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="collapseOne" class="collapse @if (app()->getLocale() == 'ar') text-right mr-4 @endif" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                    @lang('lang.About First Desc')
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="services-2 d-flex">
-                                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-dropper"></span></div>
-                                    <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
-                                        <h3>@lang('lang.About Last')</h3>
-                                        <p>@lang('lang.About Last Desc')</p>
+                            <br>
+                            <div class="card bg-secondary text-white ">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left text-white @if (app()->getLocale() == 'ar') text-right mr-4 @endif collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            @lang('lang.About Last')
+                                            <i class="fa fa-plus fa-2x d-none d-sm-block pull-right @if (app()->getLocale() == 'ar') pull-left @endif"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse @if (app()->getLocale() == 'ar') text-right mr-4 @endif" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @lang('lang.About Last Desc')
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="services-2 d-flex">
-                                    <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-experiment-results"></span></div>
-                                    <div class="text @if (app()->getLocale() == 'ar') text-right mr-4 @endif">
-                                        <h3>@lang('lang.About Third')</h3>
-                                        <p>@lang('lang.About Third Desc')</p>
+                            <br>
+                            <div class="card bg-secondary text-white">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left text-white @if (app()->getLocale() == 'ar') text-right mr-4 @endif collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            @lang('lang.About Third')
+                                            <i class="fa fa-plus fa-2x d-none d-sm-block pull-right @if (app()->getLocale() == 'ar') pull-left @endif"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse @if (app()->getLocale() == 'ar') text-right mr-4 @endif" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        @lang('lang.About Third Desc')
                                     </div>
                                 </div>
                             </div>
@@ -103,10 +123,10 @@
                     </div>
                 </div>
                 @if (app()->getLocale() == 'ar')
-                <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url({{url('design/FrontEnd/images/about.jpg')}});">
-                </div>
+                <img class="col-md-5 pl-5 img-responsive" src="{{url('design/FrontEnd/images/about.jpg')}}" title="@lang('lang.About Us')" alt="@lang('lang.About Us')">
                 @endif
             </div>
+        
         </div>
     </section>
 

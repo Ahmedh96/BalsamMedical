@@ -43,7 +43,7 @@
         </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section" style="border-bottom:3px solid #d20505;border-top:3px solid #d20505;">
         <div class="container">
             <div class="row d-flex align-items-stretch no-gutters">
                 <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
@@ -81,12 +81,12 @@
         </div>
     </section>
 
-    <section class="ftco-section contact-section">
+    <section class="ftco-section contact-section" style="border-bottom:3px solid #d20505;">
         <div class="container">
             @if (setting())
             <div class="row d-flex mb-5 contact-info">
                 <div class="col-md-12 mb-4">
-                    <h2 class="h4">@lang('lang.Contact Information')</h2>
+                    <h2 class="h4 text-center">@lang('lang.Contact Information')</h2>
                 </div>
                 <div class="w-100"></div>
                 <div class="col-md-3 d-flex">

@@ -45,6 +45,29 @@
         font-size: 14px;
         }
     </style> --}}
+    <style>
+        /* Photo Banner */
+        .photobanner img  {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+         
+        .photobanner img:hover {
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+            cursor: pointer;
+         
+            -webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+            box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        }
+    </style>
     @if(app()->getLocale() == 'ar')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css">
     @endif

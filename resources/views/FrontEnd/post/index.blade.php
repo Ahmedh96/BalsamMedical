@@ -56,7 +56,7 @@
             </div>
         </div>
     </section>
-    <section class="section bg-secondary">
+    <section class="section bg-secondary" style="border-bottom:3px solid #d20505;border-top:3px solid #d20505;">
         <div>
             <div class="card card-profile shadow mt--300 ">
                 <div>
