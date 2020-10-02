@@ -92,7 +92,9 @@ border-bottom:3px solid #d20505;border-top:2px solid #d20505;" id="ftco-navbar">
                 </div>
             </div>
             <div class="col-lg-12">
+            @if (setting())
                 <img src="{{url('public/uploads/Settings/Logo/' . setting()->logo)}}" class="d-none d-lg-block" height="110" width="400" alt="{{setting()->sitename}}">
+                @endif
             </div>
         </div>
     </div>

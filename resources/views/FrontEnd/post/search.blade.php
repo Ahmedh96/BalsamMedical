@@ -55,7 +55,7 @@
             @foreach ($posts as $post)
             <div class="col-xs-12 col-lg-4">
                     <div class="rounded overflow-hidden ">
-                        <div style="width: 20rem;">
+                        <div style="width: 20rem;border:3px solid #17a2b8; border-radius:23px">
                             <a href="{{route('front.post' , [$post->id , str_replace_me($post->title) ] )}}" title="{{$post->title}}">
                                 <img class="card-img-top" src="{{url('uploads/Posts/'.$post->image)}}" alt="{{$post->title}}" style="max-height: 200px;border-radius: 20px; border:3px solid #d20505">
                             </a>

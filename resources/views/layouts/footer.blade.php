@@ -213,7 +213,7 @@
                     @if ($LatestPosts)
                         @foreach ($LatestPosts as $LatestPost)
                             <div class="block-21 mb-5 d-flex">
-                                <a class="blog-img mr-4 @if(app()->getLocale() == 'ar') ml-3 @endif"  style="background-image: url({{url('uploads/Posts/' . $LatestPost->image)}});border-radius:2px" title="{{$LatestPost->title}}"></a>
+                                <a class="blog-img mr-4 @if(app()->getLocale() == 'ar') ml-3 @endif"  style="background-image: url({{url('uploads/Posts/' . $LatestPost->image)}});border-radius:10px;border:2px solid #d20505" title="{{$LatestPost->title}}"></a>
                                 <div class="text">
                                     <h3 class="heading"><a href="{{route('front.post' , [$LatestPost->id , str_replace_me($LatestPost->title) ])}}" title="{{$LatestPost->title}}">{{$LatestPost->title}}</a></h3>
                                     <div class="meta">
@@ -240,7 +240,4 @@
     </div>
 </footer>
 
-@push
-<script>
-</script>
-@endpush
+

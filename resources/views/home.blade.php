@@ -20,26 +20,41 @@
             <div class="container">
     		    <div class="row ml-3">
     		        <div class="col-lg-4 mt-3">
-		                <img src="{{url('design/FrontEnd/images/jv8hHoRppr.jpg')}}" 
-                        title="@lang('lang.About Last')"
-                        alt="@lang('lang.About Last')" 
-                        class="img-responsive mt-5"
-                        width="300" height="200"
-                        style="border-radius: 10px;border:3px solid #d20505">
+                        <span 
+    		            style="display:inline-block; 
+    		            border-bottom: 3px solid #17a2b8;
+    		            border-radius: 10px;">
+                            <img src="{{url('design/FrontEnd/images/jv8hHoRppr.jpg')}}" 
+                            title="@lang('lang.About Last')"
+                            alt="@lang('lang.About Last')" 
+                            class="img-responsive mt-5"
+                            width="300" height="200"
+                            style="border-radius: 10px;border:3px solid #d20505">
+                        </span>
     		        </div>
     		        <div class="col-lg-4 mt-3">
-    		          <img src="{{url('design/FrontEnd/images/YUC96soJHM.jpg')}}" 
-                        title="@lang('lang.About First')"
-                        alt="@lang('lang.About First')" 
-                        class="img-responsive mt-5" width="300" height="200"
-                        style="border-radius: 10px;border:3px solid #d20505">
+                        <span 
+    		            style="display:inline-block; 
+    		            border-bottom: 3px solid #17a2b8;
+    		            border-radius: 10px;">
+                        <img src="{{url('design/FrontEnd/images/YUC96soJHM.jpg')}}" 
+                            title="@lang('lang.About First')"
+                            alt="@lang('lang.About First')" 
+                            class="img-responsive mt-5" width="300" height="200"
+                            style="border-radius: 10px;border:3px solid #d20505">
+                        </span>
     		        </div>
     		        <div class="col-lg-4 mt-3">
-    		            <img src="{{url('design/FrontEnd/images/bFJ9fLdpBE.jpg')}}" 
-                        title="@lang('lang.About Third')"
-                        alt="@lang('lang.About Third')"
-                        class="img-responsive mt-5" width="300" height="200"
-                        style="border-radius: 10px;border:3px solid #d20505">
+                        <span 
+    		            style="display:inline-block; 
+    		            border-bottom: 3px solid #17a2b8;
+    		            border-radius: 10px;">
+                            <img src="{{url('design/FrontEnd/images/bFJ9fLdpBE.jpg')}}" 
+                            title="@lang('lang.About Third')"
+                            alt="@lang('lang.About Third')"
+                            class="img-responsive mt-5" width="300" height="200"
+                            style="border-radius: 10px;border:3px solid #d20505">
+                        </span>
     		        </div>
     		    </div>
 		    </div>
@@ -108,7 +123,7 @@
                     @if ($postlatest)
                         @foreach ($postlatest as $post)
                             <div class="col-md-4 ftco-animate">
-                                <div class="blog-entry">
+                                <div class="blog-entry" style="border-bottom:3px solid #17a2b8"> 
                                     <a href="{{route('front.post' , [$post->id , str_replace_me($post->title)])}}" title="{{$post->title}}" class="block-20">
                                         <img class="img-responsive w-100 block-20" src="{{url('uploads/Posts/'.$post->image)}}" title="{{$post->title}}" alt="{{$post->title}}" style="border-radius: 20px;border:3px solid #d20505">
                                     </a>

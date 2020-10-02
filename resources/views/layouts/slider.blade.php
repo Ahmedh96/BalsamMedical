@@ -1,7 +1,7 @@
 <section class="home-slider owl-carousel" style="direction: ltr">
     @if ($LatestPosts)
         @foreach ($LatestPosts as $LatestPost)
-            <div class="slider-item" style="background-image:url({{url('uploads/Posts/' . $LatestPost->image)}});" data-stellar-background-ratio="0.5">
+            <div class="slider-item img-responsive" style="background-image:url({{url('uploads/Posts/' . $LatestPost->image)}});" data-stellar-background-ratio="0.5">
                 {{-- <img src="{{url('uploads/Posts/' . $LatestPost->image)}}" alt="{{$LatestPost->title}}" title="{{$LatestPost->title}}"> --}}
                 <div class="overlay"></div>
                 <div class="container">
